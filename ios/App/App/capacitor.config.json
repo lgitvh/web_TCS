@@ -1,0 +1,15 @@
+{
+	"appId": "vn.huyenkiem.game",
+	"appName": "Huyền Kiếm",
+	"webDir": "client/dist",
+	"ios": {
+		"contentInset": "never",
+		"backgroundColor": "#5fc2ff"
+	},
+	"plugins": {
+		"CapacitorHttp": {
+			"enabled": true
+		}
+	},
+	"packageClassList": []
+}
