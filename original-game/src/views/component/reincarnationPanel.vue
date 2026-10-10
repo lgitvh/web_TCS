@@ -1,21 +1,21 @@
 <template>
   <div class="reincarnation">
-    <!-- <a class="github" target="_blank" @click="navToGithub" title="源码" src="https://github.com/Couy69/vue-idle-game"></a> -->
+    <!-- <a class="github" target="_blank" @click="navToGithub" title="Source code" src="https://github.com/Couy69/vue-idle-game"></a> -->
     <div class="title">
-      <p>现在转生可以获得{{willGetreincarnationPoint}}转生点数</p>
+      <p>Rebirth now to gain{{willGetreincarnationPoint}}Rebirth points</p>
       <div class="info">
-        <p>- 转生后会失去金币与装备</p>
-        <p>- 转生会获得转生点数</p>
-        <p>- 转生点数根据人物等级，身上装备品质强化等级计算，持有金币与背包装备不会纳入计算</p>
+        <p>- Rebirth removes your gold and gear</p>
+        <p>- Rebirth grants rebirth points</p>
+        <p>- Rebirth points are based on your level and the quality/enhance level of equipped gear. Gold and backpack items don’t count</p>
       </div>
       <div class='btn-div'>
-        <div class="button" @click="reincarnationConfirm">确认转生</div>
+        <div class="button" @click="reincarnationConfirm">Confirm rebirth</div>
       </div>
     </div>
     <div class="content">
       <div class="info">
-        <p>当前转生次数：{{reincarnationData.count}}次</p>
-        <p>剩余转生点数：{{reincarnationData.point}}</p>
+        <p>Rebirths: {{reincarnationData.count}} times</p>
+        <p>Unspent points: {{reincarnationData.point}}</p>
       </div>
       <div class="panel">
         <div class="item" v-for="(v,k) in attr" :key="k">
@@ -49,7 +49,7 @@ export default {
       attr: [
         {
           name: 'HP',
-          showName: '生命值',
+          showName: 'HP',
           img: require('../../assets/icons/S_Holy01.png'),
           oldValue: 0,
           point: 0,
@@ -58,7 +58,7 @@ export default {
           maxPoint: null,
         }, {
           name: 'ATK',
-          showName: '攻击力',
+          showName: 'Attack',
           img: require('../../assets/icons/ATK.png'),
           oldValue: 0,
           point: 0,
@@ -67,7 +67,7 @@ export default {
           maxPoint: null,
         }, {
           name: 'CRIT',
-          showName: '暴击率',
+          showName: 'Crit rate',
           img: require('../../assets/icons/CRIT.png'),
           oldValue: 0,
           point: 0,
@@ -76,7 +76,7 @@ export default {
           maxPoint: 500,
         }, {
           name: 'CRITDMG',
-          showName: '暴击伤害',
+          showName: 'Crit damage',
           img: require('../../assets/icons/CRITDMG.png'),
           oldValue: 0,
           point: 0,
@@ -85,7 +85,7 @@ export default {
           maxPoint: null,
         }, {
           name: 'DEF',
-          showName: '护甲',
+          showName: 'Armor',
           img: require('../../assets/icons/icon_11.png'),
           oldValue: 0,
           point: 0,
@@ -94,7 +94,7 @@ export default {
           maxPoint: null,
         }, {
           name: 'BLOC',
-          showName: '格挡',
+          showName: 'Block',
           img: require('../../assets/icons/S_BLOC.png'),
           oldValue: 0,
           point: 0, unity: '',
@@ -103,7 +103,7 @@ export default {
         },
         // {
         //   name: 'GOLD',
-        //   showName: '金币获取倍率',
+        //   showName: 'Gold获取倍率',
         //   img: require('../../assets/icons/S_BLOC.png'),
         //   oldValue: 0,
         //   point: 0, unity: '',
@@ -112,7 +112,7 @@ export default {
         // },
         {
           name: 'MOVESPEED',
-          showName: '副本行进速度',
+          showName: 'Dungeon walk speed',
           img: require('../../assets/icons/S_EVA.png'),
           oldValue: 0,
           point: 0, unity: 'X',
@@ -121,7 +121,7 @@ export default {
         },
         {
           name: 'BATTLESPEED',
-          showName: '副本战斗速度',
+          showName: 'Dungeon battle speed',
           img: require('../../assets/icons/S_EVA.png'),
           oldValue: 0,
           point: 0, unity: 'X',
@@ -197,17 +197,17 @@ export default {
       if (this.$store.state.playerAttribute.lv <= 30) {
         this.$store.commit("set_sys_info", {
           msg: `
-              等级这么低就先别转了吧，超过lv:30再来看看
+              Your level is too low to rebirth. Come back after Lv30
             `,
           type: 'warning'
         });
         return
       }
       this.$message({
-        message: `你将获得${this.willGetreincarnationPoint}转生点数，同时你的金币和装备都会消失。`,
-        title: '提示',
-        closeBtnText: '算了',
-        confirmBtnText: '转了转了',
+        message: `You will gain${this.willGetreincarnationPoint}rebirth points, but your gold and gear will be lost.`,
+        title: 'Notice',
+        closeBtnText: 'Never mind',
+        confirmBtnText: 'Do it!',
         onClose: () => {
           this.clearPlayerInfo()
           this.$store.commit('set_player_rein', {
@@ -318,7 +318,7 @@ export default {
       if(v.maxPoint&&v.point + num+v.hasPoint>v.maxPoint){
         this.$store.commit("set_sys_info", {
           msg: `
-              该项最多加点至${v.maxPoint}
+              This stat caps at${v.maxPoint}
             `,
           type: 'warning'
         });

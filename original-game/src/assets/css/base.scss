@@ -466,3 +466,15 @@ input,textarea{
     }
   }
 }
+/* English names are longer than the original Chinese: let them wrap on small screens. */
+@media screen and (max-width:768px) {
+  #app .title .name {
+    height: auto !important;
+    min-height: 0.46rem;
+    line-height: 1.15 !important;
+    white-space: normal !important;
+    display: flex;
+    align-items: center;
+    font-size: 0.16rem !important;
+  }
+}

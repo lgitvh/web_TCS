@@ -5,14 +5,14 @@
     </div> -->
     <div class="armorPanel" :style="{'box-shadow':' 0 0 5px 5px '+armor.quality.color + 'b8'}" v-if="JSON.stringify(armor)!='{}'">
       <div class="title">
-        <div class='icon' :class="{'red-flash':armor.enchantlvl>=13,unique:armor.quality.name=='独特'}"  :style="{'box-shadow':'inset 0 0 7px 2px '+armor.quality.color}">
+        <div class='icon' :class="{'red-flash':armor.enchantlvl>=13,unique:armor.quality.name=='Unique'}"  :style="{'box-shadow':'inset 0 0 7px 2px '+armor.quality.color}">
           <img :src="armor.type.iconSrc" alt="">
         </div>
         <div class='name' :style="{color:armor.quality.color}">{{armor.type.name}} {{armor.enchantlvl?'(+'+armor.enchantlvl+')':''}}</div>
       </div>
       <div class='type'>
         <div :style="{color:armor.quality.color}">{{armor.quality.name}}</div>
-        <div>防具</div>
+        <div>Armor</div>
       </div>
       <div class='lv'>
         <div>lv{{armor.lv}}</div>
@@ -70,7 +70,7 @@ export default {
       return parseInt(Math.random() * (Max || 39)) + 1
     },
     createType(armor) {
-      if (armor.quality.name == '独特') {
+      if (armor.quality.name == 'Unique') {
         var index = Math.floor((Math.random() * this.uniqueCategoryArmor.length));
         var type = this.uniqueCategoryArmor[index], lv = armor.lv
       } else {

@@ -5,14 +5,14 @@
     </div> -->
     <div class="ringPanel" :style="{'box-shadow':' 0 0 5px 5px '+ring.quality.color + 'b8'}" v-if="JSON.stringify(ring)!='{}'">
       <div class="title">
-        <div class='icon' :class="{'red-flash':ring.enchantlvl>=13,unique:ring.quality.name=='独特'}" :style="{'box-shadow':'inset 0 0 7px 2px '+ring.quality.color}">
+        <div class='icon' :class="{'red-flash':ring.enchantlvl>=13,unique:ring.quality.name=='Unique'}" :style="{'box-shadow':'inset 0 0 7px 2px '+ring.quality.color}">
           <img :src="ring.type.iconSrc" alt="">
         </div>
         <div class='name' :style="{color:ring.quality.color}">{{ring.type.name}} {{ring.enchantlvl?'(+'+ring.enchantlvl+')':''}}</div>
       </div>
       <div class='type'>
         <div :style="{color:ring.quality.color}">{{ring.quality.name}}</div>
-        <div>戒指</div>
+        <div>Ring</div>
       </div>
       <div class='lv'>
         <div>lv{{ring.lv}}</div>
@@ -70,7 +70,7 @@ export default {
       return parseInt(Math.random() * (Max || 39)) + 1
     },
     createType(ring) {
-      if (ring.quality.name == '独特') {
+      if (ring.quality.name == 'Unique') {
         var index = Math.floor((Math.random() * this.uniqueCategory.length));
         var type = this.uniqueCategory[index], lv = ring.lv
       } else {

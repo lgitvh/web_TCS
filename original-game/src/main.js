@@ -4,14 +4,8 @@ import router from './router'
 import store from './store'
 import '@/assets/css/base.scss'
 
-import {
-  getAxiosInstance
-} from '@/assets/js/api' // 导入api接口
-getAxiosInstance().then(v => {
-  Vue.prototype.$api = v
-}).catch(e => {
-  console.log(e)
-});
+// The original author's feedback server (couy.xyz) is not used in this build: the game is fully offline.
+Vue.prototype.$api = { post: () => Promise.reject(new Error('offline')) }
 
 const vue = new Vue({
   router,

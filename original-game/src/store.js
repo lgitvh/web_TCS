@@ -8,128 +8,128 @@ var initial_weapon = {
     "lv": 1,
     itemType: 'weapon',
     "quality": {
-      name: '破旧',
+      name: 'Worn',
       qualityCoefficient: 0.7,
       probability: '0.25',
       color: '#a1a1a1',
       extraEntryNum: 1,
     },
     "type": {
-      "name": "新手短剑",
-      "des": "新手菜鸡使用的短剑",
+      "name": "Novice Short Sword",
+      "des": "A short sword for total beginners",
       "iconSrc": "./icons/W_Sword001.png",
       "entry": [{
         "valCoefficient": 0.9,
         "value": 1,
         "showVal": "+1",
         "type": "ATK",
-        "name": "攻击力"
+        "name": "Attack"
       }]
     },
     "extraEntry": [{
       "value": 1,
       "showVal": "+1",
       "type": "ATK",
-      "name": "攻击力"
+      "name": "Attack"
     }]
   },
   initial_armor = {
     "lv": 1,
     itemType: 'armor',
     "quality": {
-      name: '破旧',
+      name: 'Worn',
       qualityCoefficient: 0.7,
       probability: '0.25',
       color: '#a1a1a1',
       extraEntryNum: 1,
     },
     "type": {
-      "name": "新手布衣",
-      "des": "新手菜鸡穿的普通衣物",
+      "name": "Novice Cloth Shirt",
+      "des": "Plain clothes for total beginners",
       "iconSrc": "./icons/A_A3.png",
       "entry": [{
         "valCoefficient": 0.9,
         "value": 1,
         "showVal": "+1",
         "type": "DEF",
-        "name": "防御力"
+        "name": "Defense"
       }]
     },
     "extraEntry": [{
       "type": "HP",
       "value": 10,
       "showVal": "+10",
-      "name": "生命值"
+      "name": "HP"
     }, ]
   },
   initial_neck = {
     "lv": 1,
     itemType: 'neck',
     "quality": {
-      name: '破旧',
+      name: 'Worn',
       qualityCoefficient: 0.7,
       probability: '0.25',
       color: '#a1a1a1',
       extraEntryNum: 1,
     },
     "type": {
-      "name": "新手项坠",
-      "des": "一个普通的指环",
+      "name": "Novice Pendant",
+      "des": "An ordinary ring",
       "iconSrc": "./icons/Ac_3.png",
       "entry": [{
         "valCoefficient": 0.9,
         "value": 20,
         "showVal": "+20",
         "type": "HP",
-        "name": "生命值"
+        "name": "HP"
       }]
     },
     "extraEntry": [{
       "type": "CRIT",
       "value": 10,
       "showVal": "+10%",
-      "name": "暴击率"
+      "name": "Crit rate"
     }]
   },
   initial_ring = {
     "lv": 1,
     itemType: 'ring',
     "quality": {
-      name: '破旧',
+      name: 'Worn',
       qualityCoefficient: 0.7,
       probability: '0.25',
       color: '#a1a1a1',
       extraEntryNum: 1,
     },
     "type": {
-      "name": "新手指环",
-      "des": "一个普通的指环",
+      "name": "Novice Ring",
+      "des": "An ordinary ring",
       "iconSrc": "./icons/Ac_10.png",
       "entry": [{
         "valCoefficient": 0.9,
         "value": 20,
         "showVal": "+20",
         "type": "HP",
-        "name": "生命值"
+        "name": "HP"
       }]
     },
     "extraEntry": [{
       "type": "CRIT",
       "value": 10,
       "showVal": "+10%",
-      "name": "暴击率"
+      "name": "Crit rate"
     }]
   };
 
 export default new Vuex.Store({
   state: {
-    needStrengthenEquipment: {}, //设定当前需要强化的装备
+    needStrengthenEquipment: {}, //设定当前需要Enhance的Equip
     sysInfo: [{
       type: '',
-      msg: "欢迎你勇士，点击地图上的副本开始战斗。"
+      msg: "Welcome, hero! Tap a dungeon on the map to start fighting."
     }, {
       type: '',
-      msg: "菜单栏可以刷新当前世界副本。"
+      msg: "Use the menu bar to refresh the dungeons on the map."
     }],
     reincarnationAttribute: {
       'HP': 0,
@@ -167,7 +167,7 @@ export default new Vuex.Store({
           value: 0,
           showValue: '',
         },
-        REDUCDMG: { //根据护甲计算的减伤比例
+        REDUCDMG: { //根据Armor计算的减伤比例
           value: 0,
           showValue: '',
         },
@@ -358,13 +358,13 @@ export default new Vuex.Store({
         attribute.CURHP = vueInstance.$deepCopy(attribute.MAXHP)
       }
 
-      // 初始暴击伤害150%
+      // 初始Crit damage150%
       attribute.CRITDMG.value += 150
 
       var atk = attribute.ATK.value,
         crit = attribute.CRIT.value,
         critdmg = attribute.CRITDMG.value
-      // 暴击率最多100%
+      // Crit rate最多100%
       if (crit > 100) {
         crit = 100
       }

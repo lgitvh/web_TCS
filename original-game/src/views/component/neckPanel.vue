@@ -5,14 +5,14 @@
     </div> -->
     <div class="neckPanel" :style="{'box-shadow':' 0 0 5px 5px '+neck.quality.color + 'b8'}" v-if="JSON.stringify(neck)!='{}'">
       <div class="title">
-        <div class='icon' :class="{'red-flash':neck.enchantlvl>=13,unique:neck.quality.name=='独特'}" :style="{'box-shadow':'inset 0 0 7px 2px '+neck.quality.color}">
+        <div class='icon' :class="{'red-flash':neck.enchantlvl>=13,unique:neck.quality.name=='Unique'}" :style="{'box-shadow':'inset 0 0 7px 2px '+neck.quality.color}">
           <img :src="neck.type.iconSrc" alt="">
         </div>
         <div class='name' :style="{color:neck.quality.color}">{{neck.type.name}} {{neck.enchantlvl?'(+'+neck.enchantlvl+')':''}}</div>
       </div>
       <div class='type'>
         <div :style="{color:neck.quality.color}">{{neck.quality.name}}</div>
-        <div>项链</div>
+        <div>Necklace</div>
       </div>
       <div class='lv'>
         <div>lv{{neck.lv}}</div>
@@ -70,7 +70,7 @@ export default {
       return parseInt(Math.random() * (Max || 39)) + 1
     },
     createType(neck) {
-      if (neck.quality.name == '独特') {
+      if (neck.quality.name == 'Unique') {
         var index = Math.floor((Math.random() * this.uniqueCategoryNeck.length));
         var type = this.uniqueCategoryNeck[index], lv = neck.lv
       } else {

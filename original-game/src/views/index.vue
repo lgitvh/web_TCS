@@ -7,14 +7,14 @@
           <div class="lv">
             <div class="value">
               <span>lv {{playerLv}}</span>
-              <span style="font-size:0.16rem">转生次数：{{$store.state.reincarnation.count}}</span>
+              <span style="font-size:0.16rem">Rebirths: {{$store.state.reincarnation.count}}</span>
             </div>
           </div>
         </template>
         <template v-slot:tip>
-          <p class="info">* 玩家当前等级与转生次数</p>
-          <p class="info">* 成功挑战首领时会提升等级</p>
-          <p class="info">* 超过30级时可以转生获取更强力的初始属性</p>
+          <p class="info">* Current level and rebirth count</p>
+          <p class="info">* Defeating a boss raises your level</p>
+          <p class="info">* After Lv30 you can rebirth for stronger starting stats</p>
         </template>
 
       </cTooltip>
@@ -29,8 +29,8 @@
           </div>
         </template>
         <template v-slot:tip>
-          <p class="info">* 当前生命值/最大生命值</p>
-          <p class="info">* 每秒会回复2%的最大生命值</p>
+          <p class="info">* Current HP / Max HP</p>
+          <p class="info">* Regenerates 2% of max HP per second</p>
         </template>
 
       </cTooltip>
@@ -46,7 +46,7 @@
       <div class="other">
         <cTooltip placement="bottom">
           <template v-slot:content>
-            <div class="item" title="攻击力">
+            <div class="item" title="Attack">
               <img src="../assets/icons/ATK.png" alt="">
               <div class="value" :style="{fontSize:attribute.ATK.value>=100000?'.18rem':'.23rem'}">
                 {{attribute.ATK.value}}
@@ -54,7 +54,7 @@
             </div>
           </template>
           <template v-slot:tip>
-            <p class="info">* 角色攻击力</p>
+            <p class="info">* Character attack</p>
           </template>
         </cTooltip>
 
@@ -68,7 +68,7 @@
             </div>
           </template>
           <template v-slot:tip>
-            <p class="info">* 角色当前的暴击率</p>
+            <p class="info">* Current critical hit chance</p>
           </template>
         </cTooltip>
 
@@ -82,7 +82,7 @@
             </div>
           </template>
           <template v-slot:tip>
-            <p class="info">* 暴击伤害初始为150%</p>
+            <p class="info">* Base critical damage is150%</p>
           </template>
         </cTooltip>
 
@@ -96,9 +96,9 @@
             </div>
           </template>
           <template v-slot:tip>
-            <p class="info">* 角色防御力以及计算后的减伤比例</p>
-            <p class="info">* 减伤比例采用非线性计算，护甲越高收益越低</p>
-            <p class="info">* 显示为近似值，实际上永远不会到达100%减伤</p>
+            <p class="info">* Character defense and the resulting damage reduction</p>
+            <p class="info">* Damage reduction is non-linear: more armor gives diminishing returns</p>
+            <p class="info">* Shown as an approximation; reduction never actually reaches 100%</p>
           </template>
         </cTooltip>
 
@@ -128,8 +128,8 @@
             </div>
           </template>
           <template v-slot:tip>
-            <p class="info">* 角色格挡伤害</p>
-            <p class="info">* 计算护甲后再计算格挡伤害就是最终受到的伤害</p>
+            <p class="info">* Damage blocked per hit</p>
+            <p class="info">* Damage taken = damage after armor, minus block</p>
           </template>
         </cTooltip>
 
@@ -144,17 +144,17 @@
             </div>
           </template>
           <template v-slot:tip>
-            <p class="info">* DPS:角色每秒伤害</p>
-            <p class="info">* 这个只是伤害数据，并没有统计防御属性，所以只是作为战斗力评估的一个依据</p>
+            <p class="info">* DPS:Damage per second</p>
+            <p class="info">* This is damage only (defense is not included), so treat it as a rough power estimate</p>
           </template>
         </cTooltip>
         <cTooltip placement="bottom">
           <template v-slot:content>
-            <div class="gold" :style="{fontSize:userGold>=1000000?'.18rem':'.22rem'}">金币: <span :style="{fontSize:userGold>=1000000?'.14rem':'.16rem'}">{{(userGold || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')}}</span></div>
+            <div class="gold" :style="{fontSize:userGold>=1000000?'.18rem':'.22rem'}">Gold: <span :style="{fontSize:userGold>=1000000?'.14rem':'.16rem'}">{{(userGold || 0).toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')}}</span></div>
           </template>
           <template v-slot:tip>
-            <p class="info">* 你拥有的金币数量</p>
-            <p class="info">* 在这里，钱就是万能的</p>
+            <p class="info">* Gold you own</p>
+            <p class="info">* Here, money can do anything</p>
           </template>
         </cTooltip>
 
@@ -162,7 +162,7 @@
 
       <div class="weapon" @mouseover="showItemInfo($event,'weapon',playerWeapon,false)" @mouseleave="closeItemInfo">
         <div class="title" v-if="playerWeapon">
-          <div class='icon' :class="{'red-flash':playerWeapon.enchantlvl>=13,unique:playerWeapon.quality.name=='独特'}" :style="{'box-shadow':'inset 0 0 7px 2px '+playerWeapon.quality.color}">
+          <div class='icon' :class="{'red-flash':playerWeapon.enchantlvl>=13,unique:playerWeapon.quality.name=='Unique'}" :style="{'box-shadow':'inset 0 0 7px 2px '+playerWeapon.quality.color}">
             <img :src="playerWeapon.type.iconSrc" alt="">
           </div>
           <div class='name' :style="{color:playerWeapon.quality.color}">{{playerWeapon.type.name}} {{playerWeapon.enchantlvl?'(+'+playerWeapon.enchantlvl+')':''}}</div>
@@ -170,7 +170,7 @@
       </div>
       <div class="armor" @mouseover="showItemInfo($event,'armor',playerArmor,false)" @mouseleave="closeItemInfo">
         <div class="title" v-if="playerArmor">
-          <div class='icon' :class="{'red-flash':playerArmor.enchantlvl>=13,unique:playerArmor.quality.name=='独特'}" :style="{'box-shadow':'inset 0 0 7px 2px  '+playerArmor.quality.color}">
+          <div class='icon' :class="{'red-flash':playerArmor.enchantlvl>=13,unique:playerArmor.quality.name=='Unique'}" :style="{'box-shadow':'inset 0 0 7px 2px  '+playerArmor.quality.color}">
             <img :src="playerArmor.type.iconSrc" alt="">
           </div>
           <div class='name' :style="{color:playerArmor.quality.color}">{{playerArmor.type.name}} {{playerArmor.enchantlvl?'(+'+playerArmor.enchantlvl+')':''}}</div>
@@ -178,7 +178,7 @@
       </div>
       <div class="neck" @mouseover="showItemInfo($event,'neck',playerNeck,false)" @mouseleave="closeItemInfo">
         <div class="title" v-if="playerNeck">
-          <div class='icon' :class="{'red-flash':playerNeck.enchantlvl>=13,unique:playerNeck.quality.name=='独特'}" :style="{'box-shadow':'inset 0 0 7px 2px '+playerNeck.quality.color}">
+          <div class='icon' :class="{'red-flash':playerNeck.enchantlvl>=13,unique:playerNeck.quality.name=='Unique'}" :style="{'box-shadow':'inset 0 0 7px 2px '+playerNeck.quality.color}">
             <img :src="playerNeck.type.iconSrc" alt="">
           </div>
           <div class='name' :style="{color:playerNeck.quality.color}">{{playerNeck.type.name}} {{playerNeck.enchantlvl?'(+'+playerNeck.enchantlvl+')':''}}</div>
@@ -186,7 +186,7 @@
       </div>
       <div class="ring" @mouseover="showItemInfo($event,'ring',playerRing,false)" @mouseleave="closeItemInfo">
         <div class="title" v-if="playerRing">
-          <div class='icon' :class="{'red-flash':playerRing.enchantlvl>=13,unique:playerRing.quality.name=='独特'}" :style="{'box-shadow':'inset 0 0 7px 2px '+playerRing.quality.color}">
+          <div class='icon' :class="{'red-flash':playerRing.enchantlvl>=13,unique:playerRing.quality.name=='Unique'}" :style="{'box-shadow':'inset 0 0 7px 2px '+playerRing.quality.color}">
             <img :src="playerRing.type.iconSrc" alt="">
           </div>
           <div class='name' :style="{color:playerRing.quality.color}">{{playerRing.type.name}} {{playerRing.enchantlvl?'(+'+playerRing.enchantlvl+')':''}}</div>
@@ -194,60 +194,60 @@
       </div>
     </div>
     <div class="sys-info">
-      <div class="clear" @click="clearSysInfo">清除信息</div>
+      <div class="clear" @click="clearSysInfo">Clear log</div>
       <div id='sysInfo'>
-        <div class="info warning" :class="{warning:v.type=='warning',battle:v.type=='battle',win:v.type=='win',trophy:v.type=='trophy',}" v-for="(v,k) in sysInfo" :key="k">系统<i style="font-size:.12rem" v-if="v.time">({{v.time}})</i>：
+        <div class="info warning" :class="{warning:v.type=='warning',battle:v.type=='battle',win:v.type=='win',trophy:v.type=='trophy',}" v-for="(v,k) in sysInfo" :key="k">System<i style="font-size:.12rem" v-if="v.time">({{v.time}})</i>：
           <span>{{v.msg}}</span>
-          <a v-if="v.equip" v-for="(o,p) in v.equip" :key="p" :style="{color:o.quality.color}" @mouseover="showItemInfo($event,o.itemType,o)" @mouseleave="closeItemInfo"><span v-if="o.quality.name=='独特'">稀有掉落：</span>{{o.type.name}}</a>
+          <a v-if="v.equip" v-for="(o,p) in v.equip" :key="p" :style="{color:o.quality.color}" @mouseover="showItemInfo($event,o.itemType,o)" @mouseleave="closeItemInfo"><span v-if="o.quality.name=='Unique'">Rare drop: </span>{{o.type.name}}</a>
         </div>
       </div>
     </div>
     <div class="map">
       <div class="plan" v-show='inDungeons'>
         <dungeons></dungeons>
-        <div class="eventEnd button" @click='eventEnd'>结束挑战</div>
+        <div class="eventEnd button" @click='eventEnd'>End challenge</div>
       </div>
       <div class="dungeons-Info" v-if="dungeons&&!inDungeons">
         <i class="dungeons-re" v-if="dungeons.type=='endless'" @click="resetEndlessLv"></i>
         <i class="dungeons-close" @click="closeDungeonsInfo"></i>
-        <div class="dungeons-title" v-if="dungeons.type=='endless'">当前副本：无尽</div>
-        <div class="dungeons-title" v-else>当前副本：lv{{dungeons.lv}}_{{dungeons.difficultyName}}</div>
+        <div class="dungeons-title" v-if="dungeons.type=='endless'">Dungeon: Endless</div>
+        <div class="dungeons-title" v-else>Dungeon: lv{{dungeons.lv}}_{{dungeons.difficultyName}}</div>
         <div class="jjj">
-          <div class="dungeons-dps" v-if="dungeons.type=='endless'">推荐DPS：???</div>
-          <div class="dungeons-dps" v-else>推荐DPS：{{dungeons.needDPS}}</div>
-          <div class="dungeons-lv" v-if="dungeons.type=='endless'">无尽层数:{{dungeons.lv}}</div>
-          <div class="dungeons-lv" v-else>副本等级:{{dungeons.lv}}</div>
+          <div class="dungeons-dps" v-if="dungeons.type=='endless'">Rec. DPS: ???</div>
+          <div class="dungeons-dps" v-else>Rec. DPS: {{dungeons.needDPS}}</div>
+          <div class="dungeons-lv" v-if="dungeons.type=='endless'">Floor: {{dungeons.lv}}</div>
+          <div class="dungeons-lv" v-else>Level: {{dungeons.lv}}</div>
         </div>
         <div class="jjj">
-          <div class="dungeons-difficulty">当前副本难度等级：{{dungeons.difficultyName}}</div>
+          <div class="dungeons-difficulty">Difficulty: {{dungeons.difficultyName}}</div>
         </div>
         <div class="info" v-if="dungeons.type=='endless'">
-          <p>- 无尽难度大致为层数*5的极难副本难度</p>
-          <p>- 无尽模式下仅能获得金币，将不会有装备</p>
-          <p>- 无尽模式挑战成功会回满血</p>
+          <p>- Endless difficulty is roughly an Extreme dungeon of level floor*5</p>
+          <p>- Endless mode gives gold only, no gear</p>
+          <p>- Clearing an Endless floor fully restores HP</p>
         </div>
         <div class="info" v-else>
-          <p>- 副本难度等级分为：普通，困难，极难</p>
-          <p>- 难度越高装备爆率也相应提升</p>
-          <p>- 困难，极难仅能挑战一次</p>
-          <p>- 困难，极难下有几率出现套装装备(下个版本加入)</p>
+          <p>- Difficulty levels: Normal, Hard, Extreme</p>
+          <p>- Higher difficulty means better drop rates</p>
+          <p>- Hard and Extreme can only be cleared once</p>
+          <p>- Hard and Extreme may drop set gear (coming next version)</p>
         </div>
         <div class="handle">
           <div v-if="dungeons.type!='endless'">
-            <p v-if="dungeons.difficulty==1"><input type="checkbox" name="" v-model="reChallenge"> 重复挑战</p>
+            <p v-if="dungeons.difficulty==1"><input type="checkbox" name="" v-model="reChallenge"> Repeat</p>
           </div>
           <div class="handle-column" style="display:flex;flex-direction:column" v-else>
-            <p><input type="checkbox" name="" v-model="upEChallenge"> 向上挑战</p>
-            <p><input type="checkbox" name="" v-model="reEChallenge"> 重复挑战</p>
+            <p><input type="checkbox" name="" v-model="upEChallenge"> Climb</p>
+            <p><input type="checkbox" name="" v-model="reEChallenge"> Repeat</p>
           </div>
-          <div class="dungeons-btn" @click="eventBegin()">开始挑战</div>
+          <div class="dungeons-btn" @click="eventBegin()">Start</div>
         </div>
       </div>
       <div class="event-icon" :class="{'low-level':v.difficulty==1,'h-level':v.difficulty==2,'boss':v.difficulty==3}" v-for="(v,k) in dungeonsArr" :key="k" @click="showDungeonsInfo(k)" v-show='!inDungeons' :style="{top: v.top,left: v.left}">
         <i class="icon-image"></i>
         <span>lv{{v.lv}}</span>
       </div>
-      <div class="event-icon endless" v-if="endlessLv&&playerLv>=10" @click="showEndlessDungeonsInfo()" v-show='!inDungeons' style="top: 6%;left: 16%;"><i class="icon-image"></i><span>无尽</span></div>
+      <div class="event-icon endless" v-if="endlessLv&&playerLv>=10" @click="showEndlessDungeonsInfo()" v-show='!inDungeons' style="top: 6%;left: 16%;"><i class="icon-image"></i><span>Endless</span></div>
     </div>
     <div class="menu">
 
@@ -258,7 +258,7 @@
           </div>
         </template>
         <template v-slot:tip>
-          <p class="info">* 背包</p>
+          <p class="info">* Backpack</p>
         </template>
       </cTooltip>
 
@@ -269,7 +269,7 @@
           </div>
         </template>
         <template v-slot:tip>
-          <p class="info">* 商 店</p>
+          <p class="info">* SHOP</p>
         </template>
       </cTooltip>
 
@@ -280,10 +280,10 @@
           </div>
         </template>
         <template v-slot:tip>
-          <p class="info">* 刷新当前世界副本</p>
-          <p class="info">* 刷新有30秒钟的间隔</p>
-          <p class="info">* 刷新时有较低概率同时刷新出高难度副本</p>
-          <p class="info">* 刷新规则[lv-5,lv+6]</p>
+          <p class="info">* Refresh the dungeons on the map</p>
+          <p class="info">* Refresh has a 30-second cooldown</p>
+          <p class="info">* Refreshing has a small chance to also spawn harder dungeons</p>
+          <p class="info">* Refresh rules[lv-5,lv+6]</p>
         </template>
       </cTooltip>
 
@@ -294,8 +294,8 @@
           </div>
         </template>
         <template v-slot:tip>
-          <p class="info">* 角色转生菜单</p>
-          <p class="info">* 淦不过了？尝试转生来提升基础属性</p>
+          <p class="info">* Rebirth menu</p>
+          <p class="info">* Stuck? Try Rebirth to raise your base stats</p>
         </template>
       </cTooltip>
 
@@ -306,7 +306,7 @@
           </div>
         </template>
         <template v-slot:tip>
-          <p class="info">* 保存游戏</p>
+          <p class="info">* Save game</p>
         </template>
       </cTooltip>
 
@@ -317,7 +317,7 @@
           </div>
         </template>
         <template v-slot:tip>
-          <p class="info">* 导出游戏存档</p>
+          <p class="info">* Export save</p>
         </template>
       </cTooltip>
 
@@ -328,7 +328,7 @@
           </div>
         </template>
         <template v-slot:tip>
-          <p class="info">* 导入游戏存档</p>
+          <p class="info">* Import save</p>
         </template>
       </cTooltip>
 
@@ -339,7 +339,7 @@
           </div>
         </template>
         <template v-slot:tip>
-          <p class="info">* GM模式</p>
+          <p class="info">* GMMode</p>
         </template>
       </cTooltip>
 
@@ -354,73 +354,73 @@
       <neckPanel :item="neck" v-show="neckShow"></neckPanel>
       <neckPanel :item="playerNeck" v-show="neckShow&&needComparison"></neckPanel>
       <div class="item-close" @click="closeItemInfo" v-if="(armorShow||ringShow||weaponShow||neckShow)&&needComparison&&operatorSchemaIsMobile">
-        关闭对比
+        Close comparison
       </div>
     </div>
     <div class="dialog-backpackPanel" v-show="backpackPanelOpened">
       <div class="title">
-        <span>背包</span>
+        <span>Backpack</span>
         <i class="close" @click="closePanel"></i>
       </div>
       <backpackPanel></backpackPanel>
     </div>
     <div class="dialog-backpackPanel" v-show="shopPanelOpened">
       <div class="title">
-        <span>装备商店</span>
+        <span>Gear shop</span>
         <i class="close" @click="closePanel"></i>
       </div>
       <shopPanel></shopPanel>
     </div>
     <div class="dialog-backpackPanel" v-if="reinPanelOpened">
       <div class="title">
-        <span>角色转生</span>
+        <span>Rebirth</span>
         <i class="close" @click="closePanel"></i>
       </div>
       <reinPanel></reinPanel>
     </div>
     <div class="dialog-backpackPanel" v-show="strengthenEquipmentPanelOpened">
       <div class="title">
-        <span>强化装备</span>
+        <span>Enhance gear</span>
         <i class="close" @click="closePanel"></i>
       </div>
       <strengthenEquipment></strengthenEquipment>
     </div>
     <div class="dialog-backpackPanel" v-show="exportSaveDataPanelOpened">
       <div class="title">
-        <span>导出存档</span>
+        <span>Export save</span>
         <i class="close" @click="closePanel"></i>
       </div>
       <div class="body"><textarea id="imSavedata" class="savedata-textarea" v-model="saveDateString"></textarea></div>
 
       <div class="footer">
-        <div class="button" @click="copySavaData">复制文本到剪贴板</div>
+        <div class="button" @click="copySavaData">Copy text to clipboard</div>
       </div>
     </div>
     <div class="dialog-backpackPanel" v-show="importSaveDataPanelOpened">
       <div class="title">
-        <span>导入存档</span>
+        <span>Import save</span>
         <i class="close" @click="closePanel"></i>
       </div>
       <div class="body">
-        <span class="prompt-message">* 手机用户长按没有粘贴请尝试使用输入法剪贴板功能</span>
-        <textarea id="exSavadata" class="savedata-textarea" @focus="saveDateString = ''" v-model="saveDateString" placeholder="清先输入存档数据"></textarea></div>
+        <span class="prompt-message">* On mobile, if long-press doesn’t paste, try your keyboard’s clipboard</span>
+        <textarea id="exSavadata" class="savedata-textarea" @focus="saveDateString = ''" v-model="saveDateString" placeholder="Please paste your save data first"></textarea></div>
       <div class="footer">
-        <div class="button" @click="importSaveData">导入</div>
+        <div class="button" @click="importSaveData">Import</div>
       </div>
     </div>
     <div class="dialog-backpackPanel gm-panel" v-if="GMOpened">
       <div class="title">
-        <span>GM面板</span>
+        <span>GMPanel</span>
         <i class="close" @click="closePanel"></i>
       </div>
       <div class="content">
         <div class="body">
-          <span class="prompt-message">* 随机生成一套指定等级与质量的装备</span>
-          lv:<input v-model="GMEquipLv" type="number" placeholder="装备等级1~110">
-          稀有度：<input v-model="GMEquipQu" type="number" placeholder="装备质量0~4">
-          增加金币：<input v-model="GMGold" type="number" placeholder="增加金币">
-          玩家等级：<input v-model="GMPlayerLv" type="number" placeholder="玩家等级：">
-          <div class="button" @click="createGMEquip">确定</div>
+          <span class="prompt-message">* Generate a random gear set of the chosen level and quality</span>
+          lv:<input v-model="GMEquipLv" type="number" placeholder="Gear level1~110">
+          Rarity: <input v-model="GMEquipQu" type="number" placeholder="Gear quality0~4">
+          Add gold: <input v-model="GMGold" type="number" placeholder="Add gold">
+          Player level: <input v-model="GMPlayerLv" type="number" placeholder="Player level: ">
+          <div class="button" @click="createGMEquip">OK</div>
         </div>
       </div>
     </div>
@@ -529,7 +529,7 @@ export default {
     this.ring = this.playerRing
     this.neck = this.playerNeck
 
-    //TODO:重新装备一次来解决不显示装备对比信息不显示的bug，不是最好但是是最快的
+    //TODO:重新Equip一 times来解决不显示Equip对比信息不显示的bug，不是最好但是是最快的
     {
       this.$store.commit('set_player_ring', this.$deepCopy(this.playerRing))
       this.$store.commit('set_player_weapon', this.$deepCopy(this.playerWeapon))
@@ -589,7 +589,7 @@ export default {
         if (this.dungeonsTime) {
           this.$store.commit("set_sys_info", {
             msg: `
-                    刚刚才刷新过了，需要等待${this.dungeonsTimeO}秒才能刷新哦。
+                    Just refreshed. Please wait${this.dungeonsTimeO}s before you can refresh.
                   `,
             type: 'wrning'
           });
@@ -612,7 +612,7 @@ export default {
           break
         }
         let difficulty = 1, r = Math.random()
-        // 生成普通副本时有几率刷新高难度副本
+        // 生成Common副本时有几率刷新高难度副本
         if (r <= Co[0]) {
           difficulty = 1
         } else if (r < Co[1] + Co[0] && r >= Co[0]) {
@@ -632,7 +632,7 @@ export default {
       }
       for (let i = this.playerLv; i < this.playerLv + 6; i++) {
         let difficulty = 1, r = Math.random()
-        // 生成普通副本时有几率刷新高难度副本
+        // 生成Common副本时有几率刷新高难度副本
         if (r <= Co[0]) {
           difficulty = 1
         } else if (r < Co[1] + Co[0] && r >= Co[0]) {
@@ -657,7 +657,7 @@ export default {
       document.execCommand("copy"); // 执行浏览器复制命令
       this.$store.commit("set_sys_info", {
         msg: `
-                已经复制存档了，建议保存到备忘录
+                Save copied. Keep it somewhere safe, like your notes app
               `,
         type: 'win'
       });
@@ -695,7 +695,7 @@ export default {
       if (!this.saveDateString) {
         this.$store.commit("set_sys_info", {
           msg: `
-                清先输入存档数据！
+                Please paste your save data first!
               `,
           type: 'warning'
         });
@@ -749,7 +749,7 @@ export default {
 
       needInfo && this.$store.commit("set_sys_info", {
         msg: `
-              游戏进度已经保存了。
+              Game progress saved.
             `,
         type: 'win'
       });
@@ -793,29 +793,29 @@ export default {
               "lv": 1,
               itemType: 'neck',
               "quality": {
-                name: '破旧',
+                name: 'Worn',
                 qualityCoefficient: 0.7,
                 probability: '0.25',
                 color: '#a1a1a1',
                 extraEntryNum: 1,
               },
               "type": {
-                "name": "新手项坠",
-                "des": "一个普通的指环",
+                "name": "Novice Pendant",
+                "des": "An ordinary ring",
                 "iconSrc": "./icons/Ac_3.png",
                 "entry": [{
                   "valCoefficient": 0.9,
                   "value": 20,
                   "showVal": "+20",
                   "type": "HP",
-                  "name": "生命值"
+                  "name": "HP"
                 }]
               },
               "extraEntry": [{
                 "type": "CRIT",
                 "value": 10,
                 "showVal": "+10%",
-                "name": "暴击率"
+                "name": "Crit rate"
               }]
             }
           }
@@ -842,7 +842,7 @@ export default {
 
         this.$store.commit("set_sys_info", {
           msg: `
-                读取存档成功
+                Save loaded
               `,
           type: 'win'
         });
@@ -850,7 +850,7 @@ export default {
         console.log(error)
         this.$store.commit("set_sys_info", {
           msg: `
-              糟糕，存档坏了！
+              Oops, the save is corrupted!
             `,
           type: 'warning'
         });
@@ -950,7 +950,7 @@ export default {
 
       this.$store.commit("set_sys_info", {
         msg: `
-              手动中断了挑战
+              Challenge stopped manually
             `,
         type: 'warning'
       });
@@ -960,15 +960,15 @@ export default {
     },
     resetEndlessLv() {
       this.$message({
-        message: '这将重置你的无尽等级，确认操作吗？',
-        title: '提示',
-        confirmBtnText: '重置',
+        message: 'This resets your Endless floor. Continue?',
+        title: 'Notice',
+        confirmBtnText: 'Reset',
         onClose: () => {
           this.$store.commit("set_endless_lv", 1);
           this.closeDungeonsInfo()
           this.$store.commit("set_sys_info", {
             msg: `
-              无尽挑战层数重置到了1级。
+              Endless floor reset to 1.
             `,
             type: 'win'
           });
@@ -1070,7 +1070,7 @@ export default {
     setSysInfo() {
       this.$store.commit("set_sys_info", {
         msg: `
-              副本探索成功！
+              Dungeon cleared!
             `,
         type: 'win'
       });

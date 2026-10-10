@@ -3,14 +3,14 @@
     <div class="equimentPanel" v-if="JSON.stringify(equiment)!='{}'">
       <cTooltip placement="bottom">
         <template v-slot:content>
-          <div class="panel-title">- 强化 i -</div>
+          <div class="panel-title">- Enhance i -</div>
         </template>
         <template v-slot:tip>
-          <p class="info">* 花费金币强化装备</p>
-          <p class="info">* 强化装备会加强装备的基础属性</p>
-          <p class="info">* 强化等级越高成功率越低</p>
-          <p class="info">* 强化等级高于5时强化失败可能会降低强化等级</p>
-          <p class="info">* 强化概率：6级80%，7级65%，8级45%，9级30%，10级以后20%</p>
+          <p class="info">* Spend gold to enhance gear</p>
+          <p class="info">* Enhancing raises the gear’s base stats</p>
+          <p class="info">* The higher the level, the lower the success rate</p>
+          <p class="info">* Above +5, a failed enhance may lower the enhance level</p>
+          <p class="info">* Success rate: +6 80%, +7 65%, +8 45%, +9 30%, +10 and up20%</p>
         </template>
       </cTooltip>
 
@@ -35,25 +35,25 @@
         </div>
       </div>
       <div class="btn-group" v-if='!autoStrengModel'>
-        <p>需要金币：<span :class="{'red':userGold<strengthenNeedGold}">{{strengthenNeedGold}}</span></p>
-        <div class="button" @click="startStreng()">强化至+{{parseInt(equiment.enchantlvl)+1}}</div>
+        <p>Gold needed: <span :class="{'red':userGold<strengthenNeedGold}">{{strengthenNeedGold}}</span></p>
+        <div class="button" @click="startStreng()">Enhance to+{{parseInt(equiment.enchantlvl)+1}}</div>
       </div>
       <div class="btn-group" v-if='!autoStrengModel'>
-        <p>自动强化目标等级：</p>
-        <p><input type="number" placeholder="目标等级" max="15" min="5" v-model="autoStrengLv"></p>
-        <div class="button" @click="startAutoStreng">自动强化</div>
+        <p>Auto-enhance target: </p>
+        <p><input type="number" placeholder="Target level" max="15" min="5" v-model="autoStrengLv"></p>
+        <div class="button" @click="startAutoStreng">Auto-enhance</div>
       </div>
       <div class="btn-group" v-if='autoStrengModel'>
-        <p>自动强化中...</p>
-        <div class="button" @click="stopAutoStreng">中断自动强化</div>
+        <p>Auto-enhancing...</p>
+        <div class="button" @click="stopAutoStreng">Stop auto-enhance</div>
       </div>
       <cTooltip placement="bottom">
         <template v-slot:content>
-          <div class="panel-title">- 词条重铸 i -</div>
+          <div class="panel-title">- Reforge affix i -</div>
         </template>
         <template v-slot:tip>
-          <p class="info">* 花费金币重铸装备词条</p>
-          <p class="info">* 重铸时词条颜色与百分比值显示了该词条的等级</p>
+          <p class="info">* Spend gold to reforge an affix</p>
+          <p class="info">* When reforging, the affix color and percentage show its roll quality</p>
         </template>
       </cTooltip>
 
@@ -66,7 +66,7 @@
               <div class="border-bottom"></div>
               <div class="border-left"></div>
             </div>
-            <div v-if="v.recastStatus" class="recast-info"><span :class="{red:userGold<recastNeedGold}"></span>点击花费{{recastNeedGold}}金币重铸</div>
+            <div v-if="v.recastStatus" class="recast-info"><span :class="{red:userGold<recastNeedGold}"></span>Spend{{recastNeedGold}}gold to reforge</div>
             <div v-else>{{v.name}} : {{v.showVal}} <span style="font-size:.12rem;margin-left:.06rem" v-if="v.EntryLevel"> ({{v.EntryLevel}})</span> </div>
           </button>
 
@@ -96,23 +96,23 @@ export default {
       qualityClass: '',
       qualityProbability: [0.25, 0.55, 0.15, 0.05,],
       quality: [{
-        name: '破旧',
+        name: 'Worn',
         qualityCoefficient: 0.7,
         probability: '0.25',
         color: '#a1a1a1',
         extraEntryNum: 1,
       }, {
-        name: '普通',
+        name: 'Common',
         qualityCoefficient: 1,
         probability: '0.55',
         color: '#fff', extraEntryNum: 2,
       }, {
-        name: '神器',
+        name: 'Artifact',
         qualityCoefficient: 1.5,
         probability: '0.15',
         color: '#ff00ff', extraEntryNum: 3,
       }, {
-        name: '史诗',
+        name: 'Epic',
         qualityCoefficient: 2,
         probability: '0.05',
         color: '#f78918', extraEntryNum: 4,
@@ -152,17 +152,17 @@ export default {
   },
   methods: {
     changeRecastStatus(v, k, status) {
-      // 设置是否处于重置状态中
+      // 设置是否处于Reset状态中
       this.qualityClass = ''
       v.recastStatus = status
       this.$set(this.equiment.extraEntry, k, v)
     },
-    // 强化装备
+    // Enhance gear
     startStreng(auto) {
       if (this.strengTime&&this.equiment.enchantlvl>=12) {
         this.$store.commit("set_sys_info", {
           msg: `
-          刷新页面时需要等待60S才能强化+12以上，仍需等待${this.strengTimeO}秒。
+          After reloading the page you must wait 60s before enhancing above +12. Remaining:${this.strengTimeO}s.
         `,
           type: 'wrning'
         });
@@ -170,14 +170,14 @@ export default {
         clearInterval(this.autoStrengTime)
         return
       }
-      // 自动强化需要金币倍率
+      // Auto-enhance需要Gold倍率
       var ra = auto ? 2 : 1
       var needGold = this.strengthenNeedGold * 1  //ra
       if (this.$store.state.playerAttribute.GOLD < needGold) {
         this.stopAutoStreng()
         this.$store.commit("set_sys_info", {
           msg: `
-              钱不够啊，强化啥呢。
+              Not enough gold to enhance.
             `,
           type: "warning",
         });
@@ -200,10 +200,10 @@ export default {
       }
       let r = Math.random()
       if (r < probabilityOfSuccess) {
-        // 强化成功
+        // Enhance成功
         lv++
       } else {
-        // 强化失败
+        // Enhance失败
         if (lv >= 5) {
           lv = lv - 1
         }
@@ -222,7 +222,7 @@ export default {
           this.stopAutoStreng()
           this.$store.commit("set_sys_info", {
             msg: `
-              自动强化完成了，去看看你的装备吧。
+              Auto-enhance finished. Go check your gear!
             `,
             type: "win",
           });
@@ -233,12 +233,12 @@ export default {
       this.autoStrengModel = false
       clearInterval(this.autoStrengTime)
     },
-    // 重铸装备
+    // ReforgeEquip
     recastTheEquiment(v, k) {
       if (this.$store.state.playerAttribute.GOLD < this.recastNeedGold) {
         this.$store.commit("set_sys_info", {
           msg: `
-              钱不够啊，重铸啥呢。
+              Not enough gold to reforge.
             `,
           type: "warning",
         });
@@ -261,11 +261,11 @@ export default {
       }
       this.changeTheEquiment()
     },
-    //根据强化等级变动装备
+    //根据Enhance等级变动Equip
     changeTheEquimentByLv(lv) {
       this.equiment.enchantlvl = lv
     },
-    //修改成功时保存这个装备
+    //修改成功时保存这个Equip
     changeTheEquiment() {
       var backpackPanel = this.findBrothersComponents(this, 'backpackPanel', false)[0]
       var index = this.findComponentUpward(this, 'index')

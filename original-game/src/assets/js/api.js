@@ -22,7 +22,7 @@ export async function getAxiosInstance() {
       case 401:
         vue.$store.commit("set_sys_info", {
           msg: `
-          😭${response.data.msg|| '服务器有点问题，请稍后重试'}
+          😭${response.data.msg|| 'Server problem, please try again later'}
           `,
           type: 'warning'
         });
@@ -30,7 +30,7 @@ export async function getAxiosInstance() {
       case 403:
         vue.$store.commit("set_sys_info", {
           msg: `
-          😭${response.data.msg|| '服务器有点问题，请稍后重试'}
+          😭${response.data.msg|| 'Server problem, please try again later'}
           `,
           type: 'warning'
         });
@@ -38,7 +38,7 @@ export async function getAxiosInstance() {
       case 404:
         vue.$store.commit("set_sys_info", {
           msg: `
-          😭${response.data.msg|| '服务器有点问题，请稍后重试'}
+          😭${response.data.msg|| 'Server problem, please try again later'}
           `,
           type: 'warning'
         });
@@ -46,7 +46,7 @@ export async function getAxiosInstance() {
       default:
         vue.$store.commit("set_sys_info", {
           msg: `
-          😭${response.data.msg|| '服务器有点问题，请稍后重试'}
+          😭${response.data.msg|| 'Server problem, please try again later'}
           `,
           type: 'warning'
         });
@@ -88,7 +88,7 @@ export async function getAxiosInstance() {
       } else {
         vue.$store.commit("set_sys_info", {
           msg: `
-          😭${response.data.msg|| '服务器有点问题，请稍后重试'}
+          😭${response.data.msg|| 'Server problem, please try again later'}
           `,
           type: 'warning'
         });

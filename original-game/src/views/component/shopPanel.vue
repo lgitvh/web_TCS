@@ -13,17 +13,17 @@
     <div class="handle">
 
       <div class="info">
-        <span v-show="timeStart" class="timeStart">下次刷新次数获取：{{timeo}}s</span>
-        <span>剩余刷新次数：{{refreshTime}}次。</span>
+        <span v-show="timeStart" class="timeStart">Next free refresh in: {{timeo}}s</span>
+        <span>Refreshes left: {{refreshTime}} times.</span>
       </div>
 
-      <div class="button" @click="goldRefreshShopItems()">10000金币刷新</div>
-      <div class="button" @click="refreshShopItems()">免费刷新</div>
-      <!-- <div class="button" @click="sell">一键出售</div> -->
+      <div class="button" @click="goldRefreshShopItems()">10000Gold refresh</div>
+      <div class="button" @click="refreshShopItems()">Free refresh</div>
+      <!-- <div class="button" @click="sell">Sell all</div> -->
     </div>
     <ul v-show="visible" :style="{ left: left + 'px', top: top + 'px' }" class="contextmenu">
-      <li @click="showItemInfo($event,currentItem.itemType,currentItem,'touch')" v-if="$store.state.operatorSchemaIsMobile">查看</li>
-      <li @click="buyTheEquipment()">购买</li>
+      <li @click="showItemInfo($event,currentItem.itemType,currentItem,'touch')" v-if="$store.state.operatorSchemaIsMobile">View</li>
+      <li @click="buyTheEquipment()">Buy</li>
     </ul>
   </div>
 </template>
@@ -87,11 +87,11 @@ export default {
   methods: {
     /**
      * 刷新商店
-     * constraint 是否跳过独特装备检测强制刷新
+     * constraint 是否跳过UniqueEquip检测强制刷新
      */
     refreshShopItems(constraint) {
       this.tipsFlag = !constraint && this.grid.find(item => {
-        return item.quality && item.quality.name == '独特'
+        return item.quality && item.quality.name == 'Unique'
       })
       if (this.tipsFlagComfirm) {
         return
@@ -99,9 +99,9 @@ export default {
       if (this.tipsFlag && !constraint) {
         this.tipsFlagComfirm = true
         this.$message({
-          message: '刷到了独特装备哦，不看看嘛？',
-          closeBtnText: '看看',
-          confirmBtnText: '辣鸡我不要',
+          message: 'A Unique item showed up in the shop. Take a look?',
+          closeBtnText: 'Look',
+          confirmBtnText: 'Junk, no thanks',
           onCancle: () => {
             this.tipsFlagComfirm = false
           },
@@ -118,7 +118,7 @@ export default {
       if (this.refreshTime < 1) {
         this.$store.commit("set_sys_info", {
           msg: `
-              刷新次数不够了，等等吧。
+              No refreshes left. Wait a bit.
             `,
           type: "warning",
         });
@@ -132,18 +132,18 @@ export default {
       var necklv = Number(this.$store.state.playerAttribute.neck.lv);
       for (let i = 0; i < 5; i++) {
         var lv = Math.floor(this.$store.state.playerAttribute.lv + Math.random() * 3);
-        //装备等级最高200
+        //Gear level最高200
         // lv = lv > 200 ? 200 : lv
         this.createShopItem(lv);
       }
     },
     /**
-     * 金币刷新商店
-     * constraint 是否跳过独特装备检测强制刷新
+     * Gold refresh商店
+     * constraint 是否跳过UniqueEquip检测强制刷新
      */
     goldRefreshShopItems(constraint) {
       this.tipsFlag = !constraint && this.grid.find(item => {
-        return item.quality && item.quality.name == '独特'
+        return item.quality && item.quality.name == 'Unique'
       })
       if (this.tipsFlagComfirm) {
         return
@@ -151,9 +151,9 @@ export default {
       if (this.tipsFlag && !constraint) {
         this.tipsFlagComfirm = true
         this.$message({
-          message: '刷到了独特装备哦，不看看嘛？',
-          closeBtnText: '看看',
-          confirmBtnText: '辣鸡我不要',
+          message: 'A Unique item showed up in the shop. Take a look?',
+          closeBtnText: 'Look',
+          confirmBtnText: 'Junk, no thanks',
           onCancle: () => {
             this.tipsFlagComfirm = false
           },
@@ -167,7 +167,7 @@ export default {
       if (this.$store.state.playerAttribute.GOLD < 10000) {
         this.$store.commit("set_sys_info", {
           msg: `
-              钱不够啊，想啥呢。
+              Not enough gold.
             `,
           type: "warning",
         });
@@ -191,25 +191,25 @@ export default {
       var equipQua = -1;
       var r = Math.random();
       if (r <= equip[0]) {
-        // 获得普通装备
+        // 获得CommonEquip
         equipQua = 1;
       } else if (r < equip[1] + equip[0] && r >= equip[0]) {
-        // 获得神器装备
+        // 获得ArtifactEquip
         equipQua = 2;
       } else if (
         r < equip[2] + equip[1] + equip[0] &&
         r >= equip[1] + equip[0]
       ) {
-        // 获得史诗装备
+        // 获得EpicEquip
         equipQua = 3;
       } else if (
         r < equip[3] + equip[2] + equip[1] + equip[0] &&
         r >= equip[2] + equip[1] + equip[0]
       ) {
-        // 获得独特装备
+        // 获得UniqueEquip
         equipQua = 4;
       } else {
-        // 未获得装备
+        // 未获得Equip
       }
       if (equipQua != -1) {
         // this.createEquip(equipQua,lv)
@@ -280,7 +280,7 @@ export default {
       if (this.$store.state.playerAttribute.GOLD < this.currentItem.gold) {
         this.$store.commit("set_sys_info", {
           msg: `
-              钱不够啊，买啥呢。
+              Not enough gold to buy that.
             `,
           type: "warning",
         });

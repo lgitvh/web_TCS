@@ -1,5 +1,5 @@
 /**
- * 戒指属性配置文件
+ * Ring属性配置文件
  * @author couy
  */
 
@@ -7,34 +7,34 @@ export const equiAttributeRing = {
   data(){
     return{
       quality: [{
-        name: '破旧',
+        name: 'Worn',
         qualityCoefficient: 0.6,
         probability: '0.25',
         color: '#a1a1a1',
         extraEntryNum: 1,
       }, {
-        name: '普通',
+        name: 'Common',
         qualityCoefficient: 0.9,
         probability: '0.55',
         color: '#fff', extraEntryNum: 2,
       }, {
-        name: '神器',
+        name: 'Artifact',
         qualityCoefficient: 1.3,
         probability: '0.15',
         color: '#ff00ff', extraEntryNum: 3,
       }, {
-        name: '史诗',
+        name: 'Epic',
         qualityCoefficient: 1.6,
         probability: '0.05',
         color: '#f78918', extraEntryNum: 4,
       }, {
-        name: '独特',
+        name: 'Unique',
         qualityCoefficient: 2,
         probability: '0',
         color: '#ff0000', extraEntryNum: 5,
       }],
       uniqueCategory: [{
-        name: '真·毛毛指环',
+        name: 'True Fluffy Ring',
         des: '',
         iconSrc: './icons/U_ring02.png',
         entry: [{
@@ -42,22 +42,22 @@ export const equiAttributeRing = {
             'value': '11',
             'showVal': '+11',
             type: 'CRITDMG',
-            'name': '暴击伤害'
+            'name': 'Crit damage'
           },{
             'valCoefficient': 0.5,
             'value': '11',
             'showVal': '+11',
             type: 'CRIT',
-            'name': '暴击率'
+            'name': 'Crit rate'
           },{
             'valCoefficient': 0.7,
             'value': '11',
             'showVal': '+11',
             type: 'ATK',
-            'name': '攻击力'
+            'name': 'Attack'
           },]
       },{
-        name: '死神名片戒指',
+        name: 'Reaper’s Calling Card Ring',
         des: '',
         iconSrc: './icons/U_ring01.png',
         entry: [{
@@ -65,22 +65,22 @@ export const equiAttributeRing = {
             'value': '11',
             'showVal': '+11',
             type: 'CRITDMG',
-            'name': '暴击伤害'
+            'name': 'Crit damage'
           },{
             'valCoefficient': 0.5,
             'value': '11',
             'showVal': '+11',
             type: 'CRIT',
-            'name': '暴击率'
+            'name': 'Crit rate'
           },{
             'valCoefficient': 0.8,
             'value': '11',
             'showVal': '+11',
             type: 'HP',
-            'name': '生命值'
+            'name': 'HP'
           }]
       },{
-        name: '先驱者戒指',
+        name: 'Pioneer’s Ring',
         des: '',
         iconSrc: './icons/U_ring03.png',
         entry: [{
@@ -88,22 +88,22 @@ export const equiAttributeRing = {
             'value': '11',
             'showVal': '+11',
             type: 'CRITDMG',
-            'name': '暴击伤害'
+            'name': 'Crit damage'
           },{
             'valCoefficient': 0.5,
             'value': '11',
             'showVal': '+11',
             type: 'CRIT',
-            'name': '暴击率'
+            'name': 'Crit rate'
           },{
             'valCoefficient': 0.7,
             'value': '11',
             'showVal': '+11',
             type: 'HP',
-            'name': '生命值'
+            'name': 'HP'
           }]
       },{
-        name: '素盏呜尊的意志',
+        name: 'Will of Susanoo',
         des: '',
         iconSrc: './icons/U_ring04.png',
         entry: [{
@@ -111,16 +111,16 @@ export const equiAttributeRing = {
             'value': '11',
             'showVal': '+11',
             type: 'CRITDMG',
-            'name': '暴击伤害'
+            'name': 'Crit damage'
           },{
             'valCoefficient': 1.1,
             'value': '11',
             'showVal': '+11',
             type: 'ATK',
-            'name': '攻击力'
+            'name': 'Attack'
           },]
       },{
-        name: '月夜见尊的意志',
+        name: 'Will of Tsukuyomi',
         des: '',
         iconSrc: './icons/U_ring05.png',
         entry: [{
@@ -128,68 +128,68 @@ export const equiAttributeRing = {
             'value': '11',
             'showVal': '+11',
             type: 'CRITDMG',
-            'name': '暴击伤害'
+            'name': 'Crit damage'
           },{
             'valCoefficient': 1.2,
             'value': '11',
             'showVal': '+11',
             type: 'HP',
-            'name': '生命值'
+            'name': 'HP'
           }]
       },],
       category: [
         {
-          name: '生命指环',
-          des: '据说拥有增强佩戴者体质的神秘功效',
+          name: 'Ring of Life',
+          des: 'Said to mysteriously strengthen its wearer’s constitution',
           iconSrc: './icons/Ac_9.png',
           entry: [{
             'valCoefficient': 1.1,
             'value': '11',
             'showVal': '+11',
             type: 'HP',
-            'name': '生命值'
+            'name': 'HP'
           }]
         },
         {
-          name: '毛毛指环',
-          des: '喵喵戒指，上面有没有摸到毛毛jio的怨念',
+          name: 'Fluffy Ring',
+          des: 'Meow ring, haunted by the grudge of paws that never got petted',
           iconSrc: './icons/Ac_11.png',
           entry: [{
             'valCoefficient': 0.9,
             'value': '11',
             'showVal': '+11',
             type: 'HP',
-            'name': '生命值'
+            'name': 'HP'
           },{
             'valCoefficient': 0.3,
             'value': '11',
             'showVal': '+11',
             type: 'ATK',
-            'name': '攻击力'
+            'name': 'Attack'
           },{
             'valCoefficient': 0.8,
             'value': '11',
             'showVal': '+11',
             type: 'CRIT',
-            'name': '暴击率'
+            'name': 'Crit rate'
           },]
         },
         {
-          name: '御魂之戒',
-          des: '出来吧，卡赞！吸纳所有彷徨的灵魂！   ——鬼剑士约翰',
+          name: 'Soulbinder Ring',
+          des: 'Come forth, Kazan! Devour every wandering soul!   - John the Ghost Swordsman',
           iconSrc: './icons/Ac_10.png',
           entry: [{
             'valCoefficient': 0.7,
             'value': '11',
             'showVal': '+11',
             type: 'HP',
-            'name': '生命值'
+            'name': 'HP'
           },{
             'valCoefficient': 0.5,
             'value': '11',
             'showVal': '+11',
             type: 'ATK',
-            'name': '攻击力'
+            'name': 'Attack'
           },]
         },
       ],
@@ -197,27 +197,27 @@ export const equiAttributeRing = {
         'value': '11',
         'showVal': '+11',
         type: 'ATK',
-        'name': '攻击力'
+        'name': 'Attack'
       }, {
         type: 'CRIT',
         'value': '8',
         'showVal': '+8%',
-        'name': '暴击率'
+        'name': 'Crit rate'
       }, {
         type: 'CRITDMG',
         'value': '20',
         'showVal': '+20%',
-        'name': '暴击伤害'
+        'name': 'Crit damage'
       }, {
         type: 'HP',
         'value': '20',
         'showVal': '+20',
-        'name': '生命值'
+        'name': 'HP'
       }, {
         type: 'DEF',
         'value': '8',
         'showVal': '+8%',
-        'name': '防御力'
+        'name': 'Defense'
       }]
     }
   },

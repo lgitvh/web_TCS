@@ -28,13 +28,13 @@ export default {
       moveTime:50,
       dungeons: {
         battleTime: 2000,
-        name: '史莱姆森林',
+        name: 'Slime Forest',
         time: '60',
         id: '1',
         eventNum: '5',
         lv: 1,
         eventType: [{
-          name: '小史莱姆', type: 'monster',
+          name: 'Little Slime', type: 'monster',
           eventType: 'battle',
           attribute: {
             HP: 20,
@@ -47,7 +47,7 @@ export default {
             ],
           }
         }, {
-          name: '小史莱姆', type: 'monster', eventType: 'battle',
+          name: 'Little Slime', type: 'monster', eventType: 'battle',
           attribute: {
             HP: 20,
             ATK: 1,
@@ -59,7 +59,7 @@ export default {
             ],
           }
         }, {
-          name: '小史莱姆',
+          name: 'Little Slime',
           type: 'monster', eventType: 'battle',
           attribute: {
             HP: 20,
@@ -72,7 +72,7 @@ export default {
             ],
           }
         }, {
-          name: '小史莱姆',
+          name: 'Little Slime',
           type: 'monster', eventType: 'battle',
           attribute: {
             HP: 20,
@@ -85,7 +85,7 @@ export default {
             ],
           }
         }, {
-          name: '史莱姆王',
+          name: 'Slime King',
           type: 'boss', eventType: 'battle',
           attribute: {
             HP: 40,
@@ -138,16 +138,16 @@ export default {
     },
     eventBegin() {
       this.$store.commit("set_sys_info", {
-        msg: "你已进入" + (this.dungeons.type=="endless"?'无尽（lv'+this.dungeons.lv+'）':this.dungeons.name),
+        msg: "You entered " + (this.dungeons.type=="endless"?'Endless (lv'+this.dungeons.lv+'）':this.dungeons.name),
         type: 'warning'
       });
-      if (this.dungeons.name == '黑色火山') {
+      if (this.dungeons.name == 'Black Volcano') {
         this.$store.commit("set_sys_info", {
-          msg: "似乎这就是最后的挑战了",
+          msg: "This seems to be the final challenge",
           type: 'battle'
         });
         this.$store.commit("set_sys_info", {
-          msg: "加油吧",
+          msg: "Good luck!",
           type: 'battle'
         });
       }
@@ -158,7 +158,7 @@ export default {
         case 'battle':
           this.$store.commit("set_sys_info", {
             msg: `
-              你遭遇了${event.name}(lv${this.dungeons.lv}),正在战斗中...
+              You encountered ${event.name} (lv${this.dungeons.lv}), fighting...
             `,
             type: 'battle'
           });
@@ -188,7 +188,7 @@ export default {
         if (this.dungeons.type == "endless") {
           this.$store.commit("set_sys_info", {
             msg: `
-                挑战成功，可以挑战下一层了
+                Victory! You can challenge the next floor
               `,
             type: "win",
           });
@@ -197,7 +197,7 @@ export default {
         } else {
           this.$store.commit("set_sys_info", {
             msg: `
-                副本探索成功！
+                Dungeon cleared!
               `,
             type: "win",
           });
@@ -206,21 +206,21 @@ export default {
         let p = this.findComponentUpward(this, 'index')
         let backpackPanel = this.findBrothersComponents(this, 'backpackPanel', false)[0]
 
-        if (this.dungeons.name == '黑色火山' && !this.$store.state.playerAttribute.endlessLv) {
+        if (this.dungeons.name == 'Black Volcano' && !this.$store.state.playerAttribute.endlessLv) {
 
           this.$store.commit("set_sys_info", {
-            msg: "击败了最后的boss，你通关了！",
+            msg: "You defeated the final boss and beat the game!",
             type: 'warning'
           });
         }
 
         if(this.dungeons.lv>=10&&!this.$store.state.playerAttribute.endlessLv){
           this.$store.commit("set_sys_info", {
-            msg: "开启了无尽挑战，可点击地图右上角副本图标进入",
+            msg: "Endless mode unlocked! Tap the dungeon icon at the top right of the map to enter",
             type: 'warning'
           });
           this.$store.commit("set_sys_info", {
-            msg: "试试你的极限吧",
+            msg: "Test your limits",
             type: 'warning'
           });
           this.$store.commit('set_endless_lv', 1)
@@ -276,14 +276,14 @@ export default {
         if (this.dungeons.type == 'endless') {
           this.$store.commit("set_sys_info", {
             msg: `
-              击杀了${event.name}(无尽层数：${this.dungeons.lv})，受到了${Math.abs(takeDmg)}点伤害
+              Defeated ${event.name} (Endless floor: ${this.dungeons.lv}), took ${Math.abs(takeDmg)} damage
             `,
             type: 'win'
           });
         } else {
           this.$store.commit("set_sys_info", {
             msg: `
-              击杀了${event.name}(lv${this.dungeons.lv})，受到了${Math.abs(takeDmg)}点伤害
+              Defeated ${event.name} (lv${this.dungeons.lv}), took ${Math.abs(takeDmg)} damage
             `,
             type: 'win'
           });
@@ -294,13 +294,13 @@ export default {
         if(this.dungeons.lv>this.$store.state.playerAttribute.lv&&event.type=='boss'){
           this.$store.commit("set_sys_info", {
             msg: `
-              你升级了，可以刷新出更高等级的副本了。
+              Level up! Higher-level dungeons can now appear.
             `,
             type: 'win'
           });
           this.$store.commit('set_player_lv', this.dungeons.lv)
         }
-        // 高难度副本只可以挑战一次
+        // 高难度副本只可以挑战一 times
         if(this.dungeons.difficulty!=1){
           p.dungeonsArr = p.dungeonsArr.filter(({ id }) => id !== this.dungeons.id);
         }
@@ -321,13 +321,13 @@ export default {
         takeDmg = takeDmg<1?1:takeDmg
         this.$store.commit("set_sys_info", {
           msg: `
-              战斗失败！受到了${takeDmg}点伤害
+              Defeated! Took ${takeDmg} damage
             `,
           type: 'warning'
         });
         this.$store.commit("set_sys_info", {
           msg: `
-              你可以尝试强化或者重铸装备之后在来挑战哦
+              Try enhancing or reforging your gear, then challenge again
             `,
           type: 'warning'
         });
@@ -339,7 +339,7 @@ export default {
     caculateTrophy(event) {
       var items = []
       var lv = this.dungeons.lv
-      // 获取独特装备
+      // 获取UniqueEquip
       if (event.type == 'boss' && this.dungeons.type != 'endless') {
         var randow = 1 - 0.02*((this.dungeons.difficulty-1)*2+1)
         if (Math.random() > randow) {
@@ -372,23 +372,23 @@ export default {
       var equipQua = -1;
       var r = Math.random()
       if (r <= equip[0]) {
-        // 获得破旧装备
+        // 获得WornEquip
         equipQua = 0
       } else if (r < equip[1] + equip[0] && r >= equip[0]) {
-        // 获得普通装备
+        // 获得CommonEquip
         equipQua = 1
       }
       else if (r < equip[2] + equip[1] + equip[0] && r >= equip[1] + equip[0]) {
-        // 获得神器装备
+        // 获得ArtifactEquip
         equipQua = 2
       }
       else if (r < equip[3] + equip[2] + equip[1] + equip[0] && r >= equip[2] + equip[1] + equip[0]) {
-        // 获得史诗装备
+        // 获得EpicEquip
         equipQua = 3
       } else {
-        // 未获得装备
+        // 未获得Equip
       }
-      //获得装备时
+      //获得Equip时
       if (equipQua != -1) {
         // this.createEquip(equipQua,lv)
         var index = Math.floor((Math.random() * 4));
@@ -415,7 +415,7 @@ export default {
         }
         this.$store.commit("set_sys_info", {
           msg: `
-              获得了:金币${parseInt(event.trophy.gold * goldObtainRatio)}
+              Gained gold: ${parseInt(event.trophy.gold * goldObtainRatio)}
             `,
           type: 'trophy',
           equip: items
@@ -425,13 +425,13 @@ export default {
           return
         }
         items.map(item => {
-          // 当开启了自动出售并且新获得的装备品质低于史诗时，自动出售
-          if (backpackPanel.autoSell[equipQua]&&item.quality.name!="独特") {
+          // 当开启了自动Sell并且新获得的Equip品质低于Epic时，自动Sell
+          if (backpackPanel.autoSell[equipQua]&&item.quality.name!="Unique") {
             var gold = item.lv * item.quality.qualityCoefficient * 30
             this.$store.commit("set_player_gold", parseInt(gold));
             this.$store.commit("set_sys_info", {
               msg: `
-                自动出售装备获得金币：${parseInt(gold)}
+                Auto-sold gear for gold: ${parseInt(gold)}
               `,
               type: 'trophy',
             });
@@ -445,7 +445,7 @@ export default {
           }
         })
       } else {
-        //金币获取倍率
+        //Gold获取倍率
         var goldObtainRatio = 1
         if (this.dungeons.type == 'endless') {
           var endlessLv = this.$store.state.playerAttribute.endlessLv
@@ -453,7 +453,7 @@ export default {
         }
         this.$store.commit("set_sys_info", {
           msg: `
-              获得了:金币${parseInt(event.trophy.gold * goldObtainRatio)}
+              Gained gold: ${parseInt(event.trophy.gold * goldObtainRatio)}
             `,
           type: 'trophy',
           equip: []

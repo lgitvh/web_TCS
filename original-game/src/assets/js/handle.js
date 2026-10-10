@@ -3,13 +3,13 @@ function deepCopy(data) {
 }
 
 /**
- * 根据强化等级计算强化后属性
- * @param {obj} entry 装备基础属性
- * @param {number} lv  装备强化等级
+ * 根据Enhance等级计算Enhance后属性
+ * @param {obj} entry Equip基础属性
+ * @param {number} lv  EquipEnhance等级
  */
 function CalculateStrAttr(entry, lv) {
   var a = 1
-  // 确定强化系数
+  // OKEnhance系数
   a = (1.055 ** lv ** 1.1)
   entry.map((item) => {
     let value
@@ -69,8 +69,8 @@ function CalculateStrAttr(entry, lv) {
 
 /**
  * 随机化生成副本
- * @param {number} lv  副本等级
- * @param {number} difficulty(1:普通 2:困难 3:极难) 副本难度
+ * @param {number} lv  Dungeon level
+ * @param {number} difficulty(1:Normal 2:Hard 3:Extreme) 副本难度
  */
 function createRandomDungeons(lv, difficulty) {
   lv = lv||1,difficulty = difficulty||1;
@@ -78,12 +78,12 @@ function createRandomDungeons(lv, difficulty) {
   var dungeonsConfig = {
     id:lv+''+difficulty,
     battleTime: 2000,
-    name: 'Lv'+lv+'_'+(difficulty==1?'普通':difficulty==2?'困难':'极难'),
+    name: 'Lv'+lv+'_'+(difficulty==1?'Normal':difficulty==2?'Hard':'Extreme'),
     eventNum: '5',
     lv: lv,
     needDPS: parseInt(lv*lv**1.3*2*difficulty),
     difficulty:difficulty,
-    difficultyName:difficulty==1?'普通':difficulty==2?'困难':'极难',
+    difficultyName:difficulty==1?'Normal':difficulty==2?'Hard':'Extreme',
     top:Math.random()*70+15+'%',
     left:Math.random()*70+10+'%',
     eventType: [{
@@ -164,7 +164,7 @@ function createRandomDungeons(lv, difficulty) {
 
 /**
  *  返回一条随机属性
- * @param {number} lv  装备强化等级
+ * @param {number} lv  EquipEnhance等级
  */
 function createRandomEntry(lv, qualityCoefficient) {
 
@@ -172,54 +172,54 @@ function createRandomEntry(lv, qualityCoefficient) {
       'value': '11',
       'showVal': '+11',
       type: 'ATK',
-      'name': '攻击力'
+      'name': 'Attack'
     }, {
       type: 'CRIT',
       'value': '8',
       'showVal': '+8%',
-      'name': '暴击率'
+      'name': 'Crit rate'
     }, {
       type: 'CRITDMG',
       'value': '20',
       'showVal': '+20%',
-      'name': '暴击伤害'
+      'name': 'Crit damage'
     }, {
       type: 'HP',
       'value': '20',
       'showVal': '+20',
-      'name': '生命值'
+      'name': 'HP'
     }, {
       type: 'DEF',
       'value': '8',
       'showVal': '+8%',
-      'name': '防御力'
+      'name': 'Defense'
     }, {
       'value': '11%',
       'showVal': '+11%',
       type: 'ATKPERCENT',
-      'name': '攻击力'
+      'name': 'Attack'
     }, {
       'value': '11%',
       'showVal': '+11%',
       type: 'DEFPERCENT',
-      'name': '防御力'
+      'name': 'Defense'
     }, {
       'value': '11%',
       'showVal': '+11%',
       type: 'HPPERCENT',
-      'name': '生命值'
+      'name': 'HP'
     },
     {
       'value': '11%',
       'showVal': '+11%',
       type: 'BLOCPERCENT',
-      'name': '格挡'
+      'name': 'Block'
     },
     {
       'value': '11%',
       'showVal': '+11%',
       type: 'BLOC',
-      'name': '格挡'
+      'name': 'Block'
     },
     // {
     //   'value': '11%',

@@ -1,5 +1,5 @@
 /**
- * 武器属性配置文件
+ * Weapon属性配置文件
  * @author couy
  */
 
@@ -7,205 +7,205 @@ export const equiAttributeWeapon = {
   data(){
     return {
       quality: [{
-        name: '破旧',
+        name: 'Worn',
         qualityCoefficient: 0.7,
         probability: '0.25',
         color: '#a1a1a1',
         extraEntryNum: 1,
       }, {
-        name: '普通',
+        name: 'Common',
         qualityCoefficient: 1,
         probability: '0.55',
         color: '#fff', extraEntryNum: 2,
       }, {
-        name: '神器',
+        name: 'Artifact',
         qualityCoefficient: 1.5,
         probability: '0.15',
         color: '#ff00ff', extraEntryNum: 3,
       }, {
-        name: '史诗',
+        name: 'Epic',
         qualityCoefficient: 2,
         probability: '0.05',
         color: '#f78918', extraEntryNum: 4,
       }, {
-        name: '独特',
+        name: 'Unique',
         qualityCoefficient: 2.2,
         probability: '0',
         color: '#ff0000', extraEntryNum: 5,
       }],
       uniqueCategory: [{
-        name: '创世亡命剑',
-        des: '只有被选中的勇士才能唤醒它真正的力量。',
+        name: 'Genesis Desperado Sword',
+        des: 'Only the chosen hero can awaken its true power.',
         iconSrc: './icons/U_Sword01.png',
         entry: [{
           'valCoefficient': 1.8,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }, {
           type: 'CRIT',
           'valCoefficient': 1.5,
           'value': '8',
           'showVal': '+8%',
-          'name': '暴击率'
+          'name': 'Crit rate'
         }, {
           'valCoefficient': 1.3,
           'value': '11',
           'showVal': '+11',
           type: 'CRITDMG',
-          'name': '暴击伤害'
+          'name': 'Crit damage'
         }]
       }, {
-        name: '无名剑',
-        des: '没有人知道它的来历。',
+        name: 'Nameless Sword',
+        des: 'No one knows where it came from.',
         iconSrc: './icons/U_Sword02.png',
         entry: [{
           'valCoefficient': 2.7,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }, {
           type: 'CRIT',
           'valCoefficient': 2.5,
           'value': '8',
           'showVal': '+8%',
-          'name': '暴击率'
+          'name': 'Crit rate'
         }]
       }, {
-        name: '死亡之刃',
-        des: '万物生自守恒，源力破则失。',
+        name: 'Blade of Death',
+        des: 'All things endure through balance; break the source and all is lost.',
         iconSrc: './icons/U_Sword04.png',
         entry: [{
           'valCoefficient': 1.8,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }, {
           type: 'CRIT',
           'valCoefficient': 1.5,
           'value': '8',
           'showVal': '+8%',
-          'name': '暴击率'
+          'name': 'Crit rate'
         }, {
           'valCoefficient': 1.3,
           'value': '11',
           'showVal': '+11',
           type: 'CRITDMG',
-          'name': '暴击伤害'
+          'name': 'Crit damage'
         }]
       }, {
-        name: '霜龙利刃',
-        des: '傲雪冷心绝，万念化冰华。',
+        name: 'Frost Dragon Edge',
+        des: 'Proud as snow, cold of heart; every thought turns to frost.',
         iconSrc: './icons/U_Sword05.png',
         entry: [{
           'valCoefficient': 1.8,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }, {
           type: 'CRIT',
           'valCoefficient': 1.5,
           'value': '8',
           'showVal': '+8%',
-          'name': '暴击率'
+          'name': 'Crit rate'
         }, {
           'valCoefficient': 1.3,
           'value': '11',
           'showVal': '+11',
           type: 'CRITDMG',
-          'name': '暴击伤害'
+          'name': 'Crit damage'
         }]
       }, {
-        name: '阿加雷斯血色巨剑',
-        des: '诚既勇兮又以武，终刚强兮不可凌。身既死兮神以灵，子魂魄兮为鬼雄。',
+        name: 'Agares’ Crimson Greatsword',
+        des: 'Brave and mighty, unbending to the end. Though the body dies, the spirit lives on as a hero among ghosts.',
         iconSrc: './icons/U_Sword03.png',
         entry: [{
           'valCoefficient': 1.8,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }, {
           type: 'CRIT',
           'valCoefficient': 1.5,
           'value': '8',
           'showVal': '+8%',
-          'name': '暴击率'
+          'name': 'Crit rate'
         }, {
           'valCoefficient': 1.3,
           'value': '11',
           'showVal': '+11',
           type: 'CRITDMG',
-          'name': '暴击伤害'
+          'name': 'Crit damage'
         }]
       }, {
-        name: '神龙纳格林之刃',
-        des: '神龙纳格林的爪子锻造的利刃',
+        name: 'Blade of Naglin',
+        des: 'A blade forged from the claw of the divine dragon Naglin',
         iconSrc: './icons/U_Sword06.png',
         entry: [{
           'valCoefficient': 2.8,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }, {
           'valCoefficient': 2.2,
           'value': '11',
           'showVal': '+11',
           type: 'CRITDMG',
-          'name': '暴击伤害'
+          'name': 'Crit damage'
         }]
       }, {
-        name: '大师大冒险家之剑',
-        des: '大师大冒险家之剑',
+        name: 'Sword of the Master Adventurer',
+        des: 'Sword of the Master Adventurer',
         iconSrc: './icons/U_Sword07.png',
         entry: [{
           'valCoefficient': 2.4,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }, {
           type: 'HP',
           'valCoefficient': 1.8,
           'value': '8',
           'showVal': '8',
-          'name': '生命值'
+          'name': 'HP'
         }]
       }, {
-        name: '六翼天使武刃',
-        des: '六翼天使武刃',
+        name: 'Six-Winged Seraph Blade',
+        des: 'Six-Winged Seraph Blade',
         iconSrc: './icons/U_Sword08.png',
         entry: [{
           'valCoefficient': 2.6,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }, {
           type: 'DEF',
           'valCoefficient': 1.8,
           'value': '8',
           'showVal': '8',
-          'name': '防御力'
+          'name': 'Defense'
         }]
       }, {
-        name: '数珠丸恒次',
-        des: '具体情况不明，传说为日莲上人所有',
+        name: 'Juzumaru Tsunetsugu',
+        des: 'Details unknown; legend says it belonged to the monk Nichiren',
         iconSrc: './icons/U_Sword09.png',
         entry: [{
           'valCoefficient': 3.9,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }]
       }, {
-        name: '埃苏莱布斯军刀',
+        name: 'Esulebus Saber',
         des: '',
         iconSrc: './icons/U_Sword10.png',
         entry: [{
@@ -213,134 +213,134 @@ export const equiAttributeWeapon = {
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }, {
           type: 'DEF',
           'valCoefficient': 1.2,
           'value': '8',
           'showVal': '8',
-          'name': '防御力'
+          'name': 'Defense'
         }, {
           type: 'BLOC',
           'valCoefficient': 1.2,
           'value': '8',
           'showVal': '8',
-          'name': '格挡'
+          'name': 'Block'
         }]
       },],
       category: [{
-        name: '狱岩石太刀',
-        des: '用狱岩石制作的太刀，据说拥有让使用者潜力爆发的神秘力量',
+        name: 'Hellrock Katana',
+        des: 'A katana forged from hellrock, said to unleash its wielder’s hidden potential',
         iconSrc: './icons/W_Sword016.png',
         entry: [{
           'valCoefficient': 1.2,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }, {
           type: 'CRIT',
           'valCoefficient': 1.3,
           'value': '8',
           'showVal': '+8%',
-          'name': '暴击率'
+          'name': 'Crit rate'
         }]
       },
       {
-        name: '战士长剑',
-        des: '六级战士使用的长剑',
+        name: 'Warrior’s Longsword',
+        des: 'A longsword used by level-6 warriors',
         iconSrc: './icons/W_Sword007.png',
         entry: [{
           'valCoefficient': 1.2,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }, {
           type: 'DEF',
           'valCoefficient': 0.5,
           'value': '8',
           'showVal': '8',
-          'name': '防御力'
+          'name': 'Defense'
         }]
       },
       {
-        name: '赤柳血刃',
-        des: '似乎会给使用者提供生命气息',
+        name: 'Crimson Willow Blade',
+        des: 'Seems to fill its wearer with life force',
         iconSrc: './icons/W_Sword019.png',
         entry: [{
           'valCoefficient': 1.3,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }, {
           type: 'HP',
           'valCoefficient': 1.1,
           'value': '8',
           'showVal': '8',
-          'name': '生命值'
+          'name': 'HP'
         }]
       },
       {
-        name: '普通长剑',
-        des: '朴实无华普通长剑，有的只有强力的攻击力',
+        name: 'Plain Longsword',
+        des: 'A plain, unadorned longsword. All it has is raw attack',
         iconSrc: './icons/W_Sword001.png',
         entry: [{
           'valCoefficient': 1.7,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }]
       }
         ,
       {
-        name: '紫炎波刃剑',
-        des: '传说中的狂战士最喜爱的剑。',
+        name: 'Violet Flame Wave Sword',
+        des: 'The legendary berserker’s favorite sword.',
         iconSrc: './icons/W_Sword021.png',
         entry: [{
           'valCoefficient': 1.7,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }]
       },
       {
-        name: '毛毛的爪子',
-        des: '这？这也是武器？',
+        name: 'Fluffy’s Claw',
+        des: 'This? This counts as a weapon?',
         iconSrc: './icons/W_Fist003.png',
         entry: [{
           'valCoefficient': 2,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }, {
           type: 'CRIT',
           'valCoefficient': 0.7,
           'value': '8',
           'showVal': '+8%',
-          'name': '暴击率'
+          'name': 'Crit rate'
         }]
       },
       {
-        name: '冰晶之刃',
-        des: '剑锋覆盖着冰晶，碰到的敌人都会被冻住。',
+        name: 'Ice Crystal Blade',
+        des: 'Its edge is coated in ice; enemies it touches freeze solid.',
         iconSrc: './icons/W_Sword018.png',
         entry: [{
           'valCoefficient': 1.4,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }, {
           'valCoefficient': 1.3,
           'value': '11',
           'showVal': '+11',
           type: 'CRITDMG',
-          'name': '暴击伤害'
+          'name': 'Crit damage'
         }]
       }
       ],
@@ -348,42 +348,42 @@ export const equiAttributeWeapon = {
         'value': '11',
         'showVal': '+11',
         type: 'ATK',
-        'name': '攻击力'
+        'name': 'Attack'
       }, {
         type: 'CRIT',
         'value': '8',
         'showVal': '+8%',
-        'name': '暴击率'
+        'name': 'Crit rate'
       }, {
         type: 'CRITDMG',
         'value': '20',
         'showVal': '+20%',
-        'name': '暴击伤害'
+        'name': 'Crit damage'
       }, {
         type: 'HP',
         'value': '20',
         'showVal': '+20',
-        'name': '生命值'
+        'name': 'HP'
       }, {
         type: 'DEF',
         'value': '8',
         'showVal': '+8%',
-        'name': '防御力'
+        'name': 'Defense'
       }, {
         'value': '11%',
         'showVal': '+11%',
         type: 'ATKPERCENT',
-        'name': '攻击力'
+        'name': 'Attack'
       }, {
         'value': '11%',
         'showVal': '+11%',
         type: 'DEFPERCENT',
-        'name': '防御力'
+        'name': 'Defense'
       }, {
         'value': '11%',
         'showVal': '+11%',
         type: 'HPPERCENT',
-        'name': '生命值'
+        'name': 'HP'
       },]
     }
   },

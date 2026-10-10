@@ -1,9 +1,9 @@
 <template>
   <div class="extras">
-    <!-- <a class="github" target="_blank" @click="navToGithub" title="源码" src="https://github.com/Couy69/vue-idle-game"></a> -->
+    <!-- <a class="github" target="_blank" @click="navToGithub" title="Source code" src="https://github.com/Couy69/vue-idle-game"></a> -->
     <div class="update-info" @click="drawerOpen" type="primary">
       <img src="../../assets/icons/menu/extras.png" alt="">
-      <span>更新日志</span>
+      <span>Changelog</span>
       <i class="new" v-if="!checkedUpdateInfo"></i>
     </div>
     <transition name="fade">
@@ -14,29 +14,29 @@
             <h1> {{item.title}}</h1>
             <span v-if="item.desc"> {{item.desc}}</span>
             <h2 class="vision" v-for="(v) in item.vision" :key="v.id" v-if="item.vision">{{v.vision}}:<a :href="v.href" target="_blank"> {{v.href}}</a></h2>
-            <h2 v-if="item.adjust">功能调整</h2>
+            <h2 v-if="item.adjust">Feature changes</h2>
             <p v-for="(v) in item.adjust" :key="v.id">{{v}}</p>
-            <h2 v-if="item.majorization">优化</h2>
+            <h2 v-if="item.majorization">Improvements</h2>
             <p v-for="(v) in item.majorization" :key="v.id">{{v}}</p>
-            <h2 v-if="item.bug">bug修复</h2>
+            <h2 v-if="item.bug">bugFixes</h2>
             <p v-for="(v) in item.bug" :key="v.id">{{v}}</p>
           </div>
         </div>
 
         <div class="footer">
           <div class="footer-github">
-            <a class="github" target="_blank" @click="navToGithub" title="源码" src="https://github.com/Couy69/vue-idle-game">
+            <a class="github" target="_blank" @click="navToGithub" title="Source code" src="https://github.com/Couy69/vue-idle-game">
             </a>
-            <span>创作不易，给个star？</span>
+            <span>Made with love. Leave a star?</span>
 
           </div>
-          <div class="footer-suggest">
+          <div v-if="false" class="footer-suggest">
             <div>
-              <textarea placeholder="发现了bug?抑或是有什么建议？欢迎提出来。" @keydown="eastereEgg1($event)" v-model="suggest" />
+              <textarea placeholder="Found a bug? Have a suggestion? Let us know." @keydown="eastereEgg1($event)" v-model="suggest" />
               </div>
             <div>
-              <input type="text" v-model="name" placeholder="你的昵称？">
-              <div class="button" @click="submitSuggest()">提交</div>
+              <input type="text" v-model="name" placeholder="Your nickname?">
+              <div class="button" @click="submitSuggest()">Submit</div>
             </div>
           </div>
           
@@ -63,147 +63,136 @@ export default {
       reKeyCode: [],
       update: [
         {
-          title: '历史版本',
-          vision: [{
-            vision: '测试服',
-            href: 'http://couy.xyz/rpg'
-          }, {
-            vision: '1.2.2',
-            href: 'http://couy.xyz/v1.2.2'
-          }],
-          desc: '- 这里保留了历史版本，你仍然可以导入存档到旧版本游玩,测试服版本不保证可玩性',
-        },
-        {
           title: '2021-1-15 (1.3.3)',
           adjust: [
-            '- 略微调高了强化带来的的基础属性加成',
-            '- 商店刷新到独特装备时新增提示',
-            '- 略微调高了一点杀怪金币获取',
-            '- 添加了看上去很牛x的 + 13特效',
+            '- Slightly raised the base stat bonus from enhancing',
+            '- Added a notice when the shop stocks a Unique item',
+            '- Slightly raised gold from kills',
+            '- Added a really cool-looking +13 effect',
           ],
           bug: [
-            '- 已修复：特定情况下无尽挑战成功后并没有回复满血',
+            '- Fixed: in some cases HP wasn’t fully restored after an Endless win',
           ]
         },
         {
           title: '2020-12-11 (1.3.2)',
-          desc: '- 界面显示的问题下个版本会解决，作者现在沉迷赛博朋克2077',
+          desc: '- UI issues will be fixed next version; the author is currently hooked on Cyberpunk2077',
           adjust: [
-            '-  商店售出装备等级无上限，跟随人物等级',
-            '-  添加了百分比格挡词条',
+            '-  Shop gear level is no longer capped; it follows your level',
+            '-  Added percentage block affix',
           ],
           bug: [
-            '- 已修复：无尽等级与人物等级可能出现负数(感谢天狐，鸡鸡姬的bug提交)',
-            '- 已修复：无尽勾选重复挑战后导致困难与极难副本也可以重复挑战(感谢konoha，游戏玩家的bug提交)'
+            '- Fixed: Endless level and character level could go negative (thanks 天狐 and 鸡鸡姬 for the bug report)',
+            '- Fixed: with Endless repeat checked, Hard and Extreme dungeons could also be repeated (thanks konoha and 游戏玩家 for the bug report)'
           ]
         },
         {
           title: '2020-12-09 (1.3.1)',
-          desc: '- 提交bug时希望准确描述一下😄',
+          desc: '- When reporting bugs, please describe them precisely😄',
           adjust: [
-            '-  无尽难度：对应层数*10的极难副本 -> 对应层数*5的极难副本',
+            '-  Endless difficulty: Extreme dungeon of level floor*10 -> an Extreme dungeon of level floor*5',
           ],
           majorization: [
-            '- 稍微调高了一点金币获取',
-            '- 自动强化需要两倍金币修改为不需要额外金币,与手动强化一致',
-            '- 调整了百分比词条的曲线，会在前期低等级时获得更高的属性',
-            '- 调高了部分带护甲词条的装备属性',
+            '- Slightly raised gold income',
+            '- Auto-enhance no longer costs double gold; same cost as manual',
+            '- Percentage affixes rebalanced to give higher stats at low levels',
+            '- Raised stats on some gear with armor affixes',
           ],
           bug: [
-            '- 已修复：装备强化后格挡值计算低于预期',
+            '- Fixed: block value lower than expected after enhancing',
           ]
         },
         {
           title: '2020-12-08 (1.3.0)',
-          desc: '- 遇到了bug或者平衡性方面的问题希望大家可以反馈一下。',
+          desc: '- If you hit a bug or balance issue, please send feedback.',
           adjust: [
-            '-  添加人物转生，转生时会获得转生点数来强化人物基础属性',
-            '-  修改副本刷新规则，现在副本将根据人物等级来刷新，点击菜单栏的刷新按钮来刷新(30S cd)',
-            '-  副本现在为随机生成，并不是以前的固定属性，难度增加，金币获取增加',
-            '-  饰品栏拆分为戒指与项链，添加新的项链装备',
-            '-  无尽挑战现在可以重置当前的挑战等级',
-            '-  添加格挡属性词条',
-            '-  护甲计算公式调整，极限值由100%调整至95%',
+            '-  Added Rebirth: rebirth grants points that raise your base stats',
+            '-  New dungeon refresh rule: dungeons now follow your level. Use the refresh button in the menu bar(30S cd)',
+            '-  Dungeons are now randomly generated instead of fixed: harder, with more gold',
+            '-  Accessory slot split into Ring and Necklace; new necklaces added',
+            '-  Endless floor can now be reset',
+            '-  Added the Block affix',
+            '-  Armor formula changed; the cap went from 100% to95%',
           ],
           majorization: [
-            '-  加入了新的字体',
-            '-  重铸时会显示当前词条的品质等级，方便确定当前词条是不是最佳属性',
+            '-  Added a new font',
+            '-  Reforging now shows each affix’s roll quality, so you can tell if it’s the best roll',
           ],
           bug: [
-            '- 修复后台挑战副本失败时自动回血失效的bug',
-            '- 自动出售价格低于预期',
+            '- Fixed HP regen not working after failing a dungeon in the backgroundbug',
+            '- auto-sell price lower than expected',
           ]
         },
         {
           title: '2020-11-30 (1.2.2)',
-          desc: '- 这次基本上都是些小优化。',
+          desc: '- Mostly small improvements this time.',
           adjust: [
-            '-  现在支持自动强化了，可以在强化界面设定目标等级自动强化，不过花费金币为正常值的两倍',
-            '-  点击右下角清除存档可以重新开始游戏，请谨慎操作或者备份原有存档',
-            '-  背包中可以设置自动出售的装备稀有度等级了（感谢执着的bug提交）',
+            '-  Auto-enhance added: set a target level in the enhance panel (costs double gold)',
+            '-  Click Clear Save at the bottom right to restart the game. Be careful, or back up your save first',
+            '-  You can now choose which rarities to auto-sell in the backpack (thanks 执着 for the bug report)',
           ],
           majorization: [
-            '- 调整了一下手机端的显示，从后台来看用手机玩的用户好像也不少',
+            '- Improved the mobile layout; it looks like plenty of people play on phones',
           ],
           bug: [
-            '- 修复手动结束挑战时出现的错误',
+            '- Fixed an error when manually ending a challenge',
           ]
         },
         {
           title: '2020-11-26 (1.2.1)',
-          desc: '- 现在可以在更新公告下方直接提意见了，或者是反馈bug。',
+          desc: '- You can now leave suggestions or bug reports right below the update notes.',
           adjust: [
-            '-  商店支持金币刷新了',
-            '-  无尽挑战添加自动挑战',
+            '-  Shop can now be refreshed with gold',
+            '-  Endless mode now supports auto-challenge',
           ],
           majorization: [
-            '- 现在强化后会保存游戏',
-            '- 继续加强副本',
-            '- 装备数值调整',
+            '- The game now saves after enhancing',
+            '- Dungeons strengthened further',
+            '- Gear stat adjustments',
           ],
         },
         {
           title: '2020-11-25 (1.2.0)',
-          desc: '- 时隔半个多月的更新,这次修改的内容比较多',
+          desc: '- First update in over two weeks, with quite a few changes',
           adjust: [
-            '-  添加导入导出存档功能：背包装备过多可能导致存档数据比较长，所以建议导出前处理一下背包装备 ',
-            '-  添加自动出售：背包栏可以开启自动出售，自动出售会卖出低品质的装备（低于神器）',
-            '-  添加装备强化与词条重铸：需要金币',
-            '-  添加独特级别的防具与饰品',
+            '-  Added save import/export: a full backpack makes the save data long, so clean up your backpack before exporting ',
+            '-  Added auto-sell: enable it in the backpack to sell low-quality gear (below Artifact)',
+            '-  Added gear enhancing and affix reforging (costs gold)',
+            '-  Added Unique armor and accessories',
           ],
           majorization: [
-            '- 加强副本强度（一级副本基本没有加强，100级强度大概增加了五倍，这个强度变化是线性的）',
-            '- 加了一些动画',
-            '- 装备数值调整',
-            '- 独特装备掉率修改为4%,商店有较小概率刷新出独特装备',
-            '- 售出装备获得金币调高了三倍，增加了高级副本金币获取'
+            '- Dungeons are stronger (Lv1 barely changed, Lv100 is about 5x stronger, scaling linearly)',
+            '- Added some animations',
+            '- Gear stat adjustments',
+            '- Unique drop rate changed to 4%; the shop has a small chance to stock Unique gear',
+            '- Selling gear now gives 3x gold; high-level dungeons give more gold'
           ],
           bug: [
-            '- 修复自动出售可能将背包其余装备卖出的bug',
+            '- Fixed auto-sell possibly selling other backpack itemsbug',
           ]
         }, {
           title: '2020-11-09 (1.1.1)',
           adjust: [
-            '-  适配移动端',
+            '-  Mobile support',
           ],
         },
         {
           title: '2020-11-06 (1.1.0)',
           desc: '',
           adjust: [
-            '- （功能）添加装备锁定功能',
-            '- （功能）装备新增百分比词条',
-            '- （功能）添加 60~100 级副本',
-            '- （功能）完成副本时可能掉落独特级别的装备（通关后 2.5%掉落率，无尽挑战不会掉落）',
-            '- （功能）通关后开启无尽挑战'
+            '- (Feature) Added gear locking',
+            '- (Feature) Gear can roll percentage affixes',
+            '- (Feature) Added Lv60-100 dungeons',
+            '- (Feature) Completing a dungeon may drop Unique gear (2.5% on clear, never in Endless)',
+            '- (Feature) Beating the game unlocks Endless mode'
           ],
           majorization: [
-            '- （优化）调整了商店价格（前期更低，后期更高），现在商店等级最高为 110 级',
-            '- （优化）调整并添加了一些新装备',
-            '- （优化）上调了 90 与 100 级副本的难度'
+            '- (Tweak) Shop prices adjusted (cheaper early, pricier late); shop item level now caps at 110',
+            '- (Tweak) Adjusted and added some new gear',
+            '- (Tweak) Raised difficulty of Lv90 and Lv100 dungeons'
           ],
           bug: [
-            '- （bug）修复了手动结束副本挑战可能导致副本加速的 bug'
+            '- (Bug) Fixed manually ending a dungeon possibly speeding it up bug'
           ]
         },]
     };
@@ -223,13 +212,13 @@ export default {
           p.GMmodel = true
           this.$store.commit("set_sys_info", {
             msg: `
-              你发现了彩蛋，想必你也是个游戏热爱者。
+              You found an easter egg. You must love games too.
             `,
             type: 'win'
           });
           this.$store.commit("set_sys_info", {
             msg: `
-              开启了GM模式，如果你是玩家的话，请不要滥用GM模式哦。
+              GM mode enabled. If you’re a player, please don’t abuse GM mode.
             `,
             type: 'win'
           });
@@ -264,7 +253,7 @@ export default {
         if (data.data.error_code == 20000) {
           this.$store.commit("set_sys_info", {
             msg: `
-              你的建议已经提交了哦，十分感谢😘
+              Your suggestion was submitted. Thank you!😘
             `,
             type: 'win'
           });
@@ -273,7 +262,7 @@ export default {
         } else {
           this.$store.commit("set_sys_info", {
             msg: `
-              提交失败：${data.data.msg}
+              Submit failed: ${data.data.msg}
             `,
             type: 'win'
           });

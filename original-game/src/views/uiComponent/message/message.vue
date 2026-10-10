@@ -27,9 +27,9 @@ export default {
       onClose: null,
       onCancle:null,
       verticalOffset: 0,
-      closeBtnText:'取消',
-      confirmBtnText:'确认',
-      title:'提示'
+      closeBtnText:'Cancel',
+      confirmBtnText:'Confirm',
+      title:'Notice'
     }
   },
   computed: {

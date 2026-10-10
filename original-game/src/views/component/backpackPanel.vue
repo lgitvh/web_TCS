@@ -17,33 +17,33 @@
       <div class="handle-checkbox">
         <!-- <input type="checkbox" name="" v-model="autoSell"> -->
         <span  @click.stop="autoSellPanel = !autoSellPanel">
-          自动出售设置
+          Auto-sell settings
           <i class="icon icon-setting"></i>
         </span>
         <div class="autoSellSetting" v-if="autoSellPanel">
-          若勾选会在副本获得该品质装备时自动出售
+          Checked rarities are sold automatically when dropped in dungeons
           <div>
-            <span @click="setAutoSell(0)"><input type="checkbox" name="" v-model="autoSell[0]">破旧</span>
-            <span @click="setAutoSell(1)"><input type="checkbox" name="" v-model="autoSell[1]">普通</span>
+            <span @click="setAutoSell(0)"><input type="checkbox" name="" v-model="autoSell[0]">Worn</span>
+            <span @click="setAutoSell(1)"><input type="checkbox" name="" v-model="autoSell[1]">Common</span>
           </div>
           <div>
-            <span @click="setAutoSell(2)"><input type="checkbox" name="" v-model="autoSell[2]">神器</span>
-            <span @click="setAutoSell(3)"><input type="checkbox" name="" v-model="autoSell[3]">史诗</span>
+            <span @click="setAutoSell(2)"><input type="checkbox" name="" v-model="autoSell[2]">Artifact</span>
+            <span @click="setAutoSell(3)"><input type="checkbox" name="" v-model="autoSell[3]">Epic</span>
           </div>
 
         </div>
       </div>
-      <div class="button" @click="neaten">一键整理</div>
-      <div class="button" @click="sell">一键出售</div>
+      <div class="button" @click="neaten">Sort</div>
+      <div class="button" @click="sell">Sell all</div>
     </div>
     <ul v-show="visible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
-      <li @click="showItemInfo($event,currentItem.itemType,currentItem,'touch')" v-if="$store.state.operatorSchemaIsMobile">查看</li>
-      <li @click="equipTheEquipment()">装备</li>
-      <li @click="strengthenEquipment()">强化</li>
-      <li @click="strengthenEquipment()">重铸</li>
-      <li @click="lockTheEquipment(true)" v-if="!currentItem.locked">锁定</li>
-      <li @click="lockTheEquipment(false)" v-if="currentItem.locked">解锁</li>
-      <li @click="sellTheEquipment()">出售</li>
+      <li @click="showItemInfo($event,currentItem.itemType,currentItem,'touch')" v-if="$store.state.operatorSchemaIsMobile">View</li>
+      <li @click="equipTheEquipment()">Equip</li>
+      <li @click="strengthenEquipment()">Enhance</li>
+      <li @click="strengthenEquipment()">Reforge</li>
+      <li @click="lockTheEquipment(true)" v-if="!currentItem.locked">Lock</li>
+      <li @click="lockTheEquipment(false)" v-if="currentItem.locked">Unlock</li>
+      <li @click="sellTheEquipment()">Sell</li>
     </ul>
   </div>
 </template>
@@ -87,7 +87,7 @@ export default {
       if (count / this.grid.length > 0.8) {
         this.$store.commit("set_sys_info", {
           msg: `
-              背包快满了，请注意及时清理！
+              Backpack almost full, clean it up soon!
             `,
           type: 'warning',
         });
@@ -100,15 +100,15 @@ export default {
       lv: 30,
       itemType: 'armor',
       quality: {
-        name: "神器",
+        name: "Artifact",
         qualityCoefficient: 1.5,
         probability: "0.15",
         color: "#ff00ff",
         extraEntryNum: 3,
       },
       type: {
-        name: "赤柳血铠",
-        des: "似乎会给使用者提供生命气息",
+        name: "Crimson Willow Blood Armor",
+        des: "Seems to fill its wearer with life force",
         iconSrc: "./icons/A_A3.png",
         entry: [
           {
@@ -116,21 +116,21 @@ export default {
             value: 51,
             showVal: "+51",
             type: "DEF",
-            name: "防御力",
+            name: "Defense",
           },
           {
             type: "HP",
             valCoefficient: 1.4,
             value: 634,
             showVal: "+634",
-            name: "生命值",
+            name: "HP",
           },
         ],
       },
       extraEntry: [
-        { type: "HP", value: 99, showVal: "+99", name: "生命值" },
-        { type: "HP", value: 93, showVal: "+93", name: "生命值" },
-        { type: "HP", value: 97, showVal: "+97", name: "生命值" },
+        { type: "HP", value: 99, showVal: "+99", name: "HP" },
+        { type: "HP", value: 93, showVal: "+93", name: "HP" },
+        { type: "HP", value: 97, showVal: "+97", name: "HP" },
       ],
     };
     // this.$set(this.grid,0,item)
@@ -143,7 +143,7 @@ export default {
     //   console.log(error)
     //   this.$store.commit("set_sys_info", {
     //     msg: `
-    //           糟糕，存档坏了！
+    //           Oops, the save is corrupted!
     //         `,
     //     type: 'warning'
     //   });
@@ -171,7 +171,7 @@ export default {
     clear(){
       this.grid = new Array(32).fill({});
     },
-    // 一键出售
+    // Sell all
     sell() {
       this.grid.map((item, index) => {
         if (JSON.stringify(item) != '{}') {
@@ -255,7 +255,7 @@ export default {
 
         !withoutWarning && this.$store.commit("set_sys_info", {
           msg: `
-              装备已锁定，请先解锁再出售。
+              This item is locked. Unlock it before selling.
             `,
           type: 'warning',
         });
@@ -266,7 +266,7 @@ export default {
       this.$store.commit("set_player_gold", parseInt(gold));
       this.$store.commit("set_sys_info", {
         msg: `
-              ${sellMsg ? sellMsg : ''}出售装备获得金币${parseInt(gold)}
+              ${sellMsg ? sellMsg : ''}Sold gear for gold${parseInt(gold)}
             `,
         type: 'trophy',
       });

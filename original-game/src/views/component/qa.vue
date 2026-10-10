@@ -1,6 +1,6 @@
 <template>
   <div class="qa">
-    <!-- <a class="github" target="_blank" @click="navToGithub" title="源码" src="https://github.com/Couy69/vue-idle-game"></a> -->
+    <!-- <a class="github" target="_blank" @click="navToGithub" title="Source code" src="https://github.com/Couy69/vue-idle-game"></a> -->
     <div class="update-info" @click="drawerOpen" type="primary">
       <img src="../../assets/icons/menu/Q&A.png" alt="">
       <span>Q&A</span>
@@ -10,8 +10,8 @@
       <div class="drawer-update" v-if="showExtrasInfo">
         <i class="close" @click="closePanel"></i>
         <h1>Q&A</h1>
-        <p>这里是之前玩家提的一些问题</p>
-        <p>收到了很多反馈我就不一一放出来了，不过提的建议我都会在更新时将你的名字po出来</p>
+        <p>Here are some questions players have asked</p>
+        <p>I got lots of feedback and can’t post it all, but I credit everyone whose suggestion makes it into an update</p>
         <div class="scroll">
           <div class="info" v-for="(item,index) in update" :key="index">
             <h1>{{item.name}}<span>({{GMTToStr(item.created_at)}})</span>:</h1>
@@ -37,49 +37,49 @@ export default {
       update: [
         {
           name: '木匠',
-          suggest: '越更新越强了',
+          suggest: 'It keeps getting harder with every update',
           created_at: '2020-11-26 19:13:42',
-          standby1: '装备越来越强，副本当然也越来越强了，现在的副本强度应该正正好',
+          standby1: 'Gear keeps getting stronger, so dungeons do too. The current difficulty should be just right',
         }, {
           name: 'QQ',
-          suggest: '自动出售设置装备颜色 仓库安排上 好像没有人物等级的概念',
+          suggest: 'Auto-sell by gear color? Storage? There doesn’t seem to be a character level',
           created_at: '2020-11-26 20:26:15',
-          standby1: '自动出售这个可以有，仓库暂时就不加了，人物等级没有这个设定（根据身上装备等级来的，同理商店装备的等级也是如此）',
+          standby1: 'Auto-sell: yes. No storage for now. Character level isn’t a separate setting (it follows your equipment level, and so does the shop’s item level)',
         }, {
           name: '木匠',
-          suggest: '无尽模式选择向上和重复的效果是一样的',
+          suggest: 'In Endless mode, Climb and Repeat do the same thing',
           created_at: '2020-11-26 20:36:07',
-          standby1: '重复是循环当前层数，向上是挑战成功就继续下一层',
+          standby1: 'Repeat loops the current floor; Climb moves to the next floor after each win',
         }, {
           name: 'Mrlin',
-          suggest: '强化不能继承？',
+          suggest: 'Enhancements don’t carry over?',
           created_at: '2020-11-27 10:12:47',
-          standby1: '暂时不能，之后应该也不会加这个功能',
+          standby1: 'Not for now, and probably not in the future',
         }, {
-          name: '云玩家',
-          suggest: '您好，游戏很好玩，提一个小意见，就是强化的概率能显示出来吗？',
+          name: 'armchair player',
+          suggest: 'Hi, the game is fun! Small suggestion: could you show the enhance success rate?',
           created_at: '2020-11-27 07:53:55',
-          standby1: '可以有,已经加到了强化tips中',
+          standby1: 'Sure, it’s now in the enhance tips',
         }, {
           name: '卜玉和银',
-          suggest: '素盏鸣那个戒指，我的一戴上去只有100滴血',
+          suggest: 'When I equip the Susanoo ring I only have 100 HP',
           created_at: '2020-11-27 10:36:10',
-          standby1: '人物初始就是100滴血，说明你身上的装备并没有加血量的装备',
+          standby1: 'Characters start with 100 HP, which means none of your equipped gear adds HP',
         }, {
           name: 'zjw',
-          suggest: '已经装备的装备能不能强化呢',
+          suggest: 'Can I enhance equipped gear?',
           created_at: '2020-11-27 10:44:04',
-          standby1: '脱下来才可以强化哦',
+          standby1: 'Unequip it first, then enhance it',
         }, {
           name: 'masy',
-          suggest: '不能后台吗？发现一后台就自动暂停了。',
+          suggest: 'Can’t it run in the background? It pauses as soon as I switch away.',
           created_at: '2020-11-28 09:18:31',
-          standby1: '后台这个是游览器的限制，切换到后台就暂停了当前应用，谷歌游览器用户可以尝试地址栏输入 chrome://flags/,搜索calc选项改成Disabled',
+          standby1: 'Background pausing is a browser limitation: switching away pauses the page. Chrome users can try opening chrome://flags/, searching for the calc option and setting it toDisabled',
         }, {
           name: 'MarkH2',
-          suggest: '能加入稀有度的說明嗎?',
+          suggest: 'Could you explain the rarities??',
           created_at: '2020-11-28 14:34:37',
-          standby1: '稀有等级：破旧-普通-神器-史诗-独特，稀有度越高词条越多同时属性越好',
+          standby1: 'Rarity: Worn - Common - Artifact - Epic - Unique. Higher rarity means more affixes and better stats',
         }]
     };
   },
@@ -100,13 +100,13 @@ export default {
           p.GMmodel = true
           this.$store.commit("set_sys_info", {
             msg: `
-              你发现了彩蛋，想必你也是个游戏热爱者。
+              You found an easter egg. You must love games too.
             `,
             type: 'win'
           });
           this.$store.commit("set_sys_info", {
             msg: `
-              开启了GM模式，如果你是玩家的话，请不要滥用GM模式哦。
+              GM mode enabled. If you’re a player, please don’t abuse GM mode.
             `,
             type: 'win'
           });

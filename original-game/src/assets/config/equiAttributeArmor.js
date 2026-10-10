@@ -1,5 +1,5 @@
 /**
- * 护甲属性配置文件
+ * Armor属性配置文件
  * @author couy
  */
 
@@ -7,28 +7,28 @@ export const equiAttributeArmor = {
   data(){
     return{
       qualityArmor: [{
-        name: '破旧',
+        name: 'Worn',
         qualityCoefficient: 0.7,
         probability: '0.25',
         color: '#a1a1a1',
         extraEntryNum: 1,
       }, {
-        name: '普通',
+        name: 'Common',
         qualityCoefficient: 1,
         probability: '0.55',
         color: '#fff', extraEntryNum: 2,
       }, {
-        name: '神器',
+        name: 'Artifact',
         qualityCoefficient: 1.5,
         probability: '0.15',
         color: '#ff00ff', extraEntryNum: 3,
       }, {
-        name: '史诗',
+        name: 'Epic',
         qualityCoefficient: 2,
         probability: '0.05',
         color: '#f78918', extraEntryNum: 4,
       }, {
-        name: '独特',
+        name: 'Unique',
         qualityCoefficient: 2.2,
         probability: '0',
         color: '#ff0000', extraEntryNum: 5,
@@ -37,30 +37,30 @@ export const equiAttributeArmor = {
         'value': '11',
         'showVal': '+11',
         type: 'ATK',
-        'name': '攻击力'
+        'name': 'Attack'
       }, {
         type: 'HP',
         'value': '20',
         'showVal': '+20',
-        'name': '生命值'
+        'name': 'HP'
       }, {
         type: 'DEF',
         'value': '8',
         'showVal': '+8%',
-        'name': '防御力'
+        'name': 'Defense'
       }, {
         'value': '11%',
         'showVal': '+11%',
         type: 'DEFPERCENT',
-        'name': '防御力'
+        'name': 'Defense'
       }, {
         'value': '11%',
         'showVal': '+11%',
         type: 'HPPERCENT',
-        'name': '生命值'
+        'name': 'HP'
       },],
       uniqueCategoryArmor: [{
-        name: '红月的夜行衣',
+        name: 'Red Moon Nightcloak',
         des: '',
         iconSrc: './icons/U_Armor06.png',
         entry: [{
@@ -68,45 +68,45 @@ export const equiAttributeArmor = {
           'value': '11',
           'showVal': '+11',
           type: 'DEF',
-          'name': '防御力'
+          'name': 'Defense'
         }, {
           type: 'HP',
           'valCoefficient': 1.5,
           'value': '8',
           'showVal': '8',
-          'name': '生命值'
+          'name': 'HP'
         }, {
           'valCoefficient': 1.2,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }]
       }, {
-        name: '肃清者戎衣',
-        des: '相传看到这一袭黑衣的人都死了。',
+        name: 'Purger’s Battle Garb',
+        des: 'Legend says no one who saw this black garb survived.',
         iconSrc: './icons/U_Armor05.png',
         entry: [{
           type: 'HP',
           'valCoefficient': 1.6,
           'value': '8',
           'showVal': '8',
-          'name': '生命值'
+          'name': 'HP'
         }, {
           'valCoefficient': 2.4,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         },{
           'valCoefficient': 1.2,
           'value': '11',
           'showVal': '+11',
           type: 'BLOC',
-          'name': '格挡'
+          'name': 'Block'
         },]
       }, {
-        name: '争执连身衣',
+        name: 'Quarrel Jumpsuit',
         des: '',
         iconSrc: './icons/U_Armor01.png',
         entry: [{
@@ -114,22 +114,22 @@ export const equiAttributeArmor = {
           'value': '11',
           'showVal': '+11',
           type: 'DEF',
-          'name': '防御力'
+          'name': 'Defense'
         }, {
           type: 'HP',
           'valCoefficient': 1.4,
           'value': '8',
           'showVal': '8',
-          'name': '生命值'
+          'name': 'HP'
         }, {
           'valCoefficient': 1.4,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }]
       }, {
-        name: '剑豪盔甲',
+        name: 'Sword Saint Armor',
         des: '',
         iconSrc: './icons/U_Armor02.png',
         entry: [{
@@ -137,16 +137,16 @@ export const equiAttributeArmor = {
           'value': '11',
           'showVal': '+11',
           type: 'DEF',
-          'name': '防御力'
+          'name': 'Defense'
         }, {
           type: 'HP',
           'valCoefficient': 2.6,
           'value': '8',
           'showVal': '8',
-          'name': '生命值'
+          'name': 'HP'
         }]
       }, {
-        name: '隐武士铠甲',
+        name: 'Hidden Samurai Armor',
         des: '',
         iconSrc: './icons/U_Armor03.png',
         entry: [{
@@ -154,22 +154,22 @@ export const equiAttributeArmor = {
           'value': '11',
           'showVal': '+11',
           type: 'DEF',
-          'name': '防御力'
+          'name': 'Defense'
         }, {
           type: 'HP',
           'valCoefficient': 1.7,
           'value': '8',
           'showVal': '8',
-          'name': '生命值'
+          'name': 'HP'
         }, {
           'valCoefficient': 0.9,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }]
       }, {
-        name: '芬撒里尔追踪者',
+        name: 'Fensaril Tracker',
         des: '',
         iconSrc: './icons/U_Armor04.png',
         entry: [{
@@ -177,22 +177,22 @@ export const equiAttributeArmor = {
           'value': '11',
           'showVal': '+11',
           type: 'DEF',
-          'name': '防御力'
+          'name': 'Defense'
         }, {
           'valCoefficient': 1.7,
           'value': '11',
           'showVal': '+11',
           type: 'CRITDMG',
-          'name': '暴击伤害'
+          'name': 'Crit damage'
         }, {
           'valCoefficient': 1.7,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }]
       },{
-        name: '先代狂龙战士盔甲',
+        name: 'Elder Dragon Berserker Armor',
         des: '',
         iconSrc: './icons/U_Armor07.png',
         entry: [{
@@ -200,122 +200,122 @@ export const equiAttributeArmor = {
           'value': '11',
           'showVal': '+11',
           type: 'DEF',
-          'name': '防御力'
+          'name': 'Defense'
         }, {
           'valCoefficient': 1.2,
           'value': '11',
           'showVal': '+11',
           type: 'BLOC',
-          'name': '格挡'
+          'name': 'Block'
         },{
           type: 'HP',
           'valCoefficient': 1.4,
           'value': '8',
           'showVal': '8',
-          'name': '生命值'
+          'name': 'HP'
         },]
       },],
       categoryArmor: [
         {
-          name: '紫金守护胸甲',
-          des: '够肉才能输出',
+          name: 'Purple-Gold Guardian Cuirass',
+          des: 'Tanky enough to deal damage',
           iconSrc: './icons/A_A2.png',
           entry: [{
             'valCoefficient': 2,
             'value': '11',
             'showVal': '+11',
             type: 'DEF',
-            'name': '防御力'
+            'name': 'Defense'
           }, {
             type: 'HP',
             'valCoefficient': 0.6,
             'value': '8',
             'showVal': '8',
-            'name': '生命值'
+            'name': 'HP'
           }]
         },
         {
-          name: '战士重铠',
-          des: '六级战士使用的重型铠甲',
+          name: 'Warrior’s Heavy Plate',
+          des: 'Heavy plate worn by level-6 warriors',
           iconSrc: './icons/A_A5.png',
           entry: [{
             'valCoefficient': 1.1,
             'value': '11',
             'showVal': '+11',
             type: 'DEF',
-            'name': '防御力'
+            'name': 'Defense'
           }, {
             type: 'HP',
             'valCoefficient': 0.8,
             'value': '8',
             'showVal': '8',
-            'name': '生命值'
+            'name': 'HP'
           }]
         },
         {
-          name: '天权轻甲',
-          des: '舍弃了防御性能的轻甲，因为更加轻便，攻击性能更加突出',
+          name: 'Celestial Light Armor',
+          des: 'Light armor that trades defense for agility, boosting offense',
           iconSrc: './icons/A_A7.png',
           entry: [{
             'valCoefficient': 0.7,
             'value': '11',
             'showVal': '+11',
             type: 'DEF',
-            'name': '防御力'
+            'name': 'Defense'
           }, {
             type: 'HP',
             'valCoefficient': 0.5,
             'value': '8',
             'showVal': '8',
-            'name': '生命值'
+            'name': 'HP'
           }, {
             'valCoefficient': 0.5,
             'value': '11',
             'showVal': '+11',
             type: 'ATK',
-            'name': '攻击力'
+            'name': 'Attack'
           }]
         },
         {
-          name: '赤柳血铠',
-          des: '似乎会给使用者提供生命气息',
+          name: 'Crimson Willow Blood Armor',
+          des: 'Seems to fill its wearer with life force',
           iconSrc: './icons/A_A3.png',
           entry: [{
             'valCoefficient': 0.9,
             'value': '11',
             'showVal': '+11',
             type: 'DEF',
-            'name': '防御力'
+            'name': 'Defense'
           }, {
             type: 'HP',
             'valCoefficient': 1.2,
             'value': '8',
             'showVal': '8',
-            'name': '生命值'
+            'name': 'HP'
           }]
         },
         {
-          name: '哈皮毛毛连身衣',
-          des: '哈皮毛毛',
+          name: 'Happy Fluffy Onesie',
+          des: 'Happy Fluffy',
           iconSrc: './icons/A_A9.png',
           entry: [{
             'valCoefficient': 0.8,
             'value': '11',
             'showVal': '+11',
             type: 'DEF',
-            'name': '防御力'
+            'name': 'Defense'
           }, {
             type: 'HP',
             'valCoefficient': 0.8,
             'value': '8',
             'showVal': '8',
-            'name': '生命值'
+            'name': 'HP'
           }, {
             'valCoefficient': 0.4,
             'value': '11',
             'showVal': '+11',
             type: 'ATK',
-            'name': '攻击力'
+            'name': 'Attack'
           }]
         }
       ],

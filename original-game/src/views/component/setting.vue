@@ -1,9 +1,9 @@
 <template>
   <div class="setting">
-    <!-- <a class="github" target="_blank" @click="navToGithub" title="源码" src="https://github.com/Couy69/vue-idle-game"></a> -->
+    <!-- <a class="github" target="_blank" @click="navToGithub" title="Source code" src="https://github.com/Couy69/vue-idle-game"></a> -->
     <div class="update-info" @click="clearSaveData" type="primary">
       <img src="../../assets/icons/menu/clear.png" alt="">
-      <span>清除存档</span>
+      <span>Clear save</span>
     </div>
 
   </div>
@@ -23,9 +23,9 @@ export default {
   methods: {
     clearSaveData() {
       this.$message({
-        message: '这将清除你的存档并刷新游戏，你确定要这样做吗?',
-        title:'提示',
-        confirmBtnText:'我要重开！',
+        message: 'This will delete your save and restart the game. Are you sure??',
+        title:'Notice',
+        confirmBtnText:'Start over!',
         onClose: () => {
           localStorage.removeItem("_sd")
           location.reload();

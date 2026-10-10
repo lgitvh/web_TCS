@@ -1,5 +1,5 @@
 /**
- * 项链属性配置文件
+ * Necklace属性配置文件
  * @author couy
  */
 
@@ -7,28 +7,28 @@ export const equiAttributeNeck = {
   data(){
     return{
       qualityNeck: [{
-        name: '破旧',
+        name: 'Worn',
         qualityCoefficient: 0.6,
         probability: '0.25',
         color: '#a1a1a1',
         extraEntryNum: 1,
       }, {
-        name: '普通',
+        name: 'Common',
         qualityCoefficient: 0.9,
         probability: '0.55',
         color: '#fff', extraEntryNum: 2,
       }, {
-        name: '神器',
+        name: 'Artifact',
         qualityCoefficient: 1.3,
         probability: '0.15',
         color: '#ff00ff', extraEntryNum: 3,
       }, {
-        name: '史诗',
+        name: 'Epic',
         qualityCoefficient: 1.6,
         probability: '0.05',
         color: '#f78918', extraEntryNum: 4,
       }, {
-        name: '独特',
+        name: 'Unique',
         qualityCoefficient: 2,
         probability: '0',
         color: '#ff0000', extraEntryNum: 5,
@@ -37,30 +37,30 @@ export const equiAttributeNeck = {
         'value': '11',
         'showVal': '+11',
         type: 'ATK',
-        'name': '攻击力'
+        'name': 'Attack'
       }, {
         type: 'HP',
         'value': '20',
         'showVal': '+20',
-        'name': '生命值'
+        'name': 'HP'
       }, {
         type: 'DEF',
         'value': '8',
         'showVal': '+8%',
-        'name': '防御力'
+        'name': 'Defense'
       }, {
         'value': '11%',
         'showVal': '+11%',
         type: 'DEFPERCENT',
-        'name': '防御力'
+        'name': 'Defense'
       }, {
         'value': '11%',
         'showVal': '+11%',
         type: 'HPPERCENT',
-        'name': '生命值'
+        'name': 'HP'
       },],
       uniqueCategoryNeck: [{
-        name: '十字旅团降魔项链',
+        name: 'Crusader Demonbane Necklace',
         des: '',
         iconSrc: './icons/U_neck01.png',
         entry: [{
@@ -68,22 +68,22 @@ export const equiAttributeNeck = {
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }, {
           'valCoefficient': 0.8,
           'value': '11',
           'showVal': '+11',
           type: 'HP',
-          'name': '生命值'
+          'name': 'HP'
         }, {
           'valCoefficient': 0.9,
           'value': '11',
           'showVal': '+11',
           type: 'DEF',
-          'name': '防御力'
+          'name': 'Defense'
         }]
       }, {
-        name: '进阶黑暗龙王项链',
+        name: 'Ascended Dark Dragon King Necklace',
         des: '',
         iconSrc: './icons/U_neck02.png',
         entry: [{
@@ -91,62 +91,62 @@ export const equiAttributeNeck = {
           'value': '11',
           'showVal': '+11',
           type: 'CRITDMG',
-          'name': '暴击伤害'
+          'name': 'Crit damage'
         }, {
           'valCoefficient': 0.5,
           'value': '11',
           'showVal': '+11',
           type: 'CRIT',
-          'name': '暴击率'
+          'name': 'Crit rate'
         }, {
           'valCoefficient': 0.8,
           'value': '11',
           'showVal': '+11',
           type: 'HP',
-          'name': '生命值'
+          'name': 'HP'
         }]
       }, {
-        name: '伟大单身成员的项链',
-        des: '真棒，真帅。有了这条帅气的项链，一辈子单身都不会孤独',
+        name: 'Necklace of the Great Singles Club',
+        des: 'So cool, so handsome. With this necklace you’ll never feel lonely being single forever',
         iconSrc: './icons/U_neck03.png',
         entry: [{
           'valCoefficient': 1.0,
           'value': '11',
           'showVal': '+11',
           type: 'CRITDMG',
-          'name': '暴击伤害'
+          'name': 'Crit damage'
         }, {
           'valCoefficient': 1.2,
           'value': '11',
           'showVal': '+11',
           type: 'BLOC',
-          'name': '格挡'
+          'name': 'Block'
         }, {
           'valCoefficient': 0.7,
           'value': '11',
           'showVal': '+11',
           type: 'HP',
-          'name': '生命值'
+          'name': 'HP'
         }]
       }, {
-        name: '魔族之翼展',
-        des: '你能看到什么呢',
+        name: 'Demon’s Wingspan',
+        des: 'What can you see?',
         iconSrc: './icons/U_neck04.png',
         entry: [{
           'valCoefficient': 1.6,
           'value': '11',
           'showVal': '+11',
           type: 'CRITDMG',
-          'name': '暴击伤害'
+          'name': 'Crit damage'
         }, {
           'valCoefficient': 1.6,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         },]
       }, {
-        name: '伊帕娅之项链',
+        name: 'Ipaya’s Necklace',
         des: '',
         iconSrc: './icons/U_neck05.png',
         entry: [{
@@ -154,92 +154,92 @@ export const equiAttributeNeck = {
           'value': '11',
           'showVal': '+11',
           type: 'BLOC',
-          'name': '格挡'
+          'name': 'Block'
         }, {
           'valCoefficient': 0.9,
           'value': '11',
           'showVal': '+11',
           type: 'DEF',
-          'name': '防御力'
+          'name': 'Defense'
         }, {
           'valCoefficient': 1.3,
           'value': '11',
           'showVal': '+11',
           type: 'HP',
-          'name': '生命值'
+          'name': 'HP'
         }]
       }],
       categoryNeck: [
         {
-          name: '十字军项链',
-          des: '十字军佩戴的项链',
+          name: 'Crusader Necklace',
+          des: 'A necklace worn by crusaders',
           iconSrc: './icons/Ac_1.png',
           entry: [{
             'valCoefficient': 0.9,
             'value': '11',
             'showVal': '+11',
             type: 'DEF',
-            'name': '防御力'
+            'name': 'Defense'
           }, {
             'valCoefficient': 0.5,
             'value': '11',
             'showVal': '+11',
             type: 'HP',
-            'name': '生命值'
+            'name': 'HP'
           },{
           'valCoefficient': 0.6,
           'value': '11',
           'showVal': '+11',
           type: 'BLOC',
-          'name': '格挡'
+          'name': 'Block'
         }]
         },
         {
-          name: '冰龙凝雪',
-          des: '冰龙凝雪',
+          name: 'Ice Dragon Frost',
+          des: 'Ice Dragon Frost',
           iconSrc: './icons/Ac_7.png',
           entry: [{
             'valCoefficient': 0.75,
             'value': '11',
             'showVal': '+11',
             type: 'CRITDMG',
-            'name': '暴击伤害'
+            'name': 'Crit damage'
           }, {
             'valCoefficient': 0.5,
             'value': '11',
             'showVal': '+11',
             type: 'CRIT',
-            'name': '暴击率'
+            'name': 'Crit rate'
           }, {
             'valCoefficient': 0.5,
             'value': '11',
             'showVal': '+11',
             type: 'HP',
-            'name': '生命值'
+            'name': 'HP'
           }]
         },
         {
-          name: '银魂之眼',
-          des: '银魂之眼',
+          name: 'Eye of the Silver Soul',
+          des: 'Eye of the Silver Soul',
           iconSrc: './icons/Ac_5.png',
           entry: [{
             'valCoefficient': 1.1,
             'value': '11',
             'showVal': '+11',
             type: 'CRIT',
-            'name': '暴击率'
+            'name': 'Crit rate'
           }, {
             'valCoefficient': 0.5,
             'value': '11',
             'showVal': '+11',
             type: 'HP',
-            'name': '生命值'
+            'name': 'HP'
           }, {
           'valCoefficient': 0.6,
           'value': '11',
           'showVal': '+11',
           type: 'ATK',
-          'name': '攻击力'
+          'name': 'Attack'
         }]
         }
       ],
@@ -247,32 +247,32 @@ export const equiAttributeNeck = {
         'value': '11',
         'showVal': '+11',
         type: 'ATK',
-        'name': '攻击力'
+        'name': 'Attack'
       }, {
         type: 'CRIT',
         'value': '8',
         'showVal': '+8%',
-        'name': '暴击率'
+        'name': 'Crit rate'
       }, {
         type: 'CRITDMG',
         'value': '20',
         'showVal': '+20%',
-        'name': '暴击伤害'
+        'name': 'Crit damage'
       }, {
         type: 'HP',
         'value': '20',
         'showVal': '+20',
-        'name': '生命值'
+        'name': 'HP'
       }, {
         type: 'DEF',
         'value': '8',
         'showVal': '+8%',
-        'name': '防御力'
+        'name': 'Defense'
       }, {
         'value': '11%',
         'showVal': '+11%',
         type: 'BLOC',
-        'name': '格挡'
+        'name': 'Block'
       }]
     }
   },
