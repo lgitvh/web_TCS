@@ -14,10 +14,10 @@
 
       <div class="info">
         <span v-show="timeStart" class="timeStart">Next free refresh in: {{timeo}}s</span>
-        <span>Refreshes left: {{refreshTime}} times.</span>
+        <span>Refreshes left: {{refreshTime}}</span>
       </div>
 
-      <div class="button" @click="goldRefreshShopItems()">10000Gold refresh</div>
+      <div class="button" @click="goldRefreshShopItems()">Refresh (10,000 gold)</div>
       <div class="button" @click="refreshShopItems()">Free refresh</div>
       <!-- <div class="button" @click="sell">Sell all</div> -->
     </div>

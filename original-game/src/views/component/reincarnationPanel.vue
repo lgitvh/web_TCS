@@ -2,7 +2,7 @@
   <div class="reincarnation">
     <!-- <a class="github" target="_blank" @click="navToGithub" title="Source code" src="https://github.com/Couy69/vue-idle-game"></a> -->
     <div class="title">
-      <p>Rebirth now to gain{{willGetreincarnationPoint}}Rebirth points</p>
+      <p>Rebirth now to gain {{willGetreincarnationPoint}} rebirth points</p>
       <div class="info">
         <p>- Rebirth removes your gold and gear</p>
         <p>- Rebirth grants rebirth points</p>
@@ -14,7 +14,7 @@
     </div>
     <div class="content">
       <div class="info">
-        <p>Rebirths: {{reincarnationData.count}} times</p>
+        <p>Rebirths: {{reincarnationData.count}}</p>
         <p>Unspent points: {{reincarnationData.point}}</p>
       </div>
       <div class="panel">

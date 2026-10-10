@@ -1,0 +1,9 @@
+{
+  "appId": "com.idlerpg.original",
+  "appName": "Idle RPG",
+  "webDir": "dist",
+  "ios": {
+    "contentInset": "always",
+    "backgroundColor": "#111111"
+  }
+}
